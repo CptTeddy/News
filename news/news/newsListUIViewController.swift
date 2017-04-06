@@ -52,6 +52,8 @@ class newsListUIViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "newsListToNewsWeb", sender: self.feedArray[indexPath.row])
+
     }
     
     func makeRequest(newsCatelog: String){
@@ -80,9 +82,15 @@ class newsListUIViewController: UIViewController, UITableViewDelegate, UITableVi
                 
             })
         }
-        
-        
-        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationVC = segue.destination as? newsWebUIVIewController {
+            if let sender = sender{
+                let news = sender as! News
+                destinationVC.url = news.url!
+            }
+        }
     }
     
     

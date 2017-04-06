@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -124,11 +125,45 @@
                     </view>
                     <connections>
                         <outlet property="newsTableView" destination="6mB-HD-hNn" id="Vhu-lk-TRk"/>
+                        <segue destination="HTQ-1o-K2M" kind="show" identifier="newsListToNewsWeb" id="p8A-rt-ekT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Sv-LO-dPd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1228" y="-584.25787106446785"/>
+            <point key="canvasLocation" x="1220" y="-588"/>
+        </scene>
+        <!--News WebUIV Iew Controller-->
+        <scene sceneID="gVz-Qh-FnW">
+            <objects>
+                <viewController id="HTQ-1o-K2M" customClass="newsWebUIVIewController" customModule="news" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kF5-yr-WU8"/>
+                        <viewControllerLayoutGuide type="bottom" id="5LC-gL-W0v"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="K7J-Gz-dr4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VOX-5L-uuA">
+                                <rect key="frame" x="8" y="54" width="359" height="594"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="VOX-5L-uuA" firstAttribute="leading" secondItem="K7J-Gz-dr4" secondAttribute="leadingMargin" constant="-8" id="2qH-lM-Hfr"/>
+                            <constraint firstItem="5LC-gL-W0v" firstAttribute="top" secondItem="VOX-5L-uuA" secondAttribute="bottom" constant="-30" id="WzY-cU-K1w"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="VOX-5L-uuA" secondAttribute="trailing" constant="-8" id="q3u-S6-sAt"/>
+                            <constraint firstItem="VOX-5L-uuA" firstAttribute="top" secondItem="kF5-yr-WU8" secondAttribute="bottom" constant="-10" id="qN9-zK-S8x"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="newsWebView" destination="VOX-5L-uuA" id="4pZ-7V-njO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="byK-ck-oXX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2039.2" y="-587.85607196401804"/>
         </scene>
         <!--Item-->
         <scene sceneID="H3V-rK-VdV">

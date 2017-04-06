@@ -22,6 +22,7 @@
 		BF301A9B1E9619E100D1215C /* newsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF301A9A1E9619E100D1215C /* newsTableViewCell.swift */; };
 		BF301AA41E96AD2700D1215C /* RequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF301AA31E96AD2700D1215C /* RequestModel.swift */; };
 		BF301AA61E96AE7900D1215C /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF301AA51E96AE7900D1215C /* News.swift */; };
+		BF301AA81E96C3E000D1215C /* newsWebUIVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF301AA71E96C3E000D1215C /* newsWebUIVIewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		BF301A9A1E9619E100D1215C /* newsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = newsTableViewCell.swift; sourceTree = "<group>"; };
 		BF301AA31E96AD2700D1215C /* RequestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestModel.swift; sourceTree = "<group>"; };
 		BF301AA51E96AE7900D1215C /* News.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		BF301AA71E96C3E000D1215C /* newsWebUIVIewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = newsWebUIVIewController.swift; sourceTree = "<group>"; };
 		DAAD22964D67C70C19D7718A /* Pods_news.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_news.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -159,9 +161,10 @@
 		BF205C771E95F63300DB5C6B /* controllers */ = {
 			isa = PBXGroup;
 			children = (
-				BF205C781E95F96A00DB5C6B /* cells */,
+				BF301AA71E96C3E000D1215C /* newsWebUIVIewController.swift */,
 				BF205C751E95F62800DB5C6B /* FeedListViewController.swift */,
 				BF301A981E9618E700D1215C /* newsListUIViewController.swift */,
+				BF205C781E95F96A00DB5C6B /* cells */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -390,6 +393,7 @@
 				BF301A9B1E9619E100D1215C /* newsTableViewCell.swift in Sources */,
 				BF205C481E95D65B00DB5C6B /* AppDelegate.swift in Sources */,
 				BF301A991E9618E700D1215C /* newsListUIViewController.swift in Sources */,
+				BF301AA81E96C3E000D1215C /* newsWebUIVIewController.swift in Sources */,
 				BF301AA41E96AD2700D1215C /* RequestModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
