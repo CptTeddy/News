@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "E8D321646984BEEA619D777D2CF5DC45513BED95",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "E8D321646984BEEA619D777D2CF5DC45513BED95" : 9223372036854775807,
+    "712F8DEDD199EDD2441A0A1035DEA134DD68231B" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "F7389302-2D93-402C-9746-CC3B0370A42E",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "E8D321646984BEEA619D777D2CF5DC45513BED95" : "teddy-jimmy-ios\/",
+    "712F8DEDD199EDD2441A0A1035DEA134DD68231B" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "news",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "news\/news.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:wjm9696\/ios_decal.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "712F8DEDD199EDD2441A0A1035DEA134DD68231B"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/CptTeddy\/teddy-jimmy-ios",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E8D321646984BEEA619D777D2CF5DC45513BED95"
+    }
+  ]
+}
