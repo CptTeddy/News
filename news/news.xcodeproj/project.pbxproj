@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8F064365C03DAD84943C4368 /* Pods_news.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAAD22964D67C70C19D7718A /* Pods_news.framework */; };
+		ADA915E31EA07F0E00DF7312 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ADA915E21EA07F0E00DF7312 /* GoogleService-Info.plist */; };
 		BF205C481E95D65B00DB5C6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF205C471E95D65B00DB5C6B /* AppDelegate.swift */; };
 		BF205C4A1E95D65B00DB5C6B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF205C491E95D65B00DB5C6B /* ViewController.swift */; };
 		BF205C4D1E95D65B00DB5C6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF205C4B1E95D65B00DB5C6B /* Main.storyboard */; };
@@ -45,6 +46,7 @@
 /* Begin PBXFileReference section */
 		606DFC32521F283BE03DFE86 /* Pods-news.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-news.release.xcconfig"; path = "Pods/Target Support Files/Pods-news/Pods-news.release.xcconfig"; sourceTree = "<group>"; };
 		69984CD868FFE14FFF6BE471 /* Pods-news.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-news.debug.xcconfig"; path = "Pods/Target Support Files/Pods-news/Pods-news.debug.xcconfig"; sourceTree = "<group>"; };
+		ADA915E21EA07F0E00DF7312 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BF205C441E95D65B00DB5C6B /* news.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = news.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF205C471E95D65B00DB5C6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF205C491E95D65B00DB5C6B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				BF205C4E1E95D65B00DB5C6B /* Assets.xcassets */,
 				BF205C501E95D65B00DB5C6B /* LaunchScreen.storyboard */,
 				BF205C531E95D65B00DB5C6B /* Info.plist */,
+				ADA915E21EA07F0E00DF7312 /* GoogleService-Info.plist */,
 			);
 			path = news;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF205C521E95D65B00DB5C6B /* LaunchScreen.storyboard in Resources */,
+				ADA915E31EA07F0E00DF7312 /* GoogleService-Info.plist in Resources */,
 				BF205C4F1E95D65B00DB5C6B /* Assets.xcassets in Resources */,
 				BF205C4D1E95D65B00DB5C6B /* Main.storyboard in Resources */,
 			);
