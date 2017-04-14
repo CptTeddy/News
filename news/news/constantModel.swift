@@ -8,20 +8,19 @@
 
 import Foundation
 
-let feedCatalog = ["General", "Technology", "Business", "Politics", "Entertainment", "Music", "Science", "gaming"]
+let feedCatalog = ["General", "Technology", "Business", "Sport", "Politics", "Entertainment", "Music", "Science", "gaming"]
 
-let catalogSource:[String:[String]] = ["General": ["abc-news-au","associated-press","al-jazeera-english"],
-                                       "Technology":["ars-technica"],
-                                       "Business":["bloomberg"],
+let catalogSource:[String:[String]] = ["General": ["abc-news-au","associated-press","al-jazeera-english", "bbc-news",
+                                                   "bild","cnn", "der-tagesspiegel", "focus", "football-italia",
+                                                    "google-news", "independent", "metro", "mirror", "newsweek",
+                                                    "new-york-magazine", "reddit-r-all", "reuters", "spiegel-online","the-guardian-au", "the-guardian-uk", "the-hindu", "the-huffington-post", "the-new-york-times", "the-telegraph", "the-times-of-india", "the-wall-street-journal", "the-washington-post", "time", "usa-today", "wired-de"],
+                                       "Technology":["ars-technica", "engadget", "gruenderszene", "hacker-news", "recode", "t3n",
+                                                        "talksport", "techcrunch", "techradar", "the-next-web", "the-verge"],
+                                       "Business":["bloomberg", "business-insider", "business-insider-uk", "cnbc", "die-zeit", "financial-times", "fortune","handelsblatt", "the-economist", "wirtschafts-woche"],
                                        "Politics":["breitbart-news"],
-                                       "Entertainment":["buzzfeed"],
-                                       "Music":["mtv-news"],
-                                       "Science":["new-scientist"],
-                                       "gaming":["polygon"]
-                                       
-                                       
-                                       
-    
-                                       
-    
-]
+                                       "Entertainment":["buzzfeed", "daily-mail","entertainment-weekly", "mashable", "the-lad-bible", ],
+                                       "Music":["mtv-news", "mtv-news-uk"],
+                                       "Science":["new-scientist", "national-geographic"],
+                                       "gaming":["polygon","ign"],
+                                       "Sport":["espn", "bbc-sport","espn-cric-info", "four-four-two","fox-sports", "nfl-news", "the-sport-bible"]
+                                    ]
