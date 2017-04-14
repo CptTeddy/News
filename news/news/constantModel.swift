@@ -17,11 +17,20 @@ let catalogSource:[String:[String]] = ["General": ["abc-news-au","associated-pre
                                        "Entertainment":["buzzfeed"],
                                        "Music":["mtv-news"],
                                        "Science":["new-scientist"],
-                                       "gaming":["polygon"]
+                                       "gaming":["polygon"]]
                                        
-                                       
-                                       
-    
-                                       
-    
+let catalogColor:[Int:[Float]] = [
+    0: [20, 20, 40],
+    1: [0, 100, 0],
+    2: [0, 0, 100],
+    3: [200, 0, 0],
+    4: [0, 200, 0],
+    5: [0, 0, 200],
+    6: [160, 160, 0],
+    7: [0, 160, 160]
 ]
+
+
+                                       
+    
+

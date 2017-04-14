@@ -48,6 +48,7 @@ class FeedListViewController: UIViewController, UICollectionViewDataSource, UICo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "catalogCell", for: indexPath) as! feedListCollectionViewCell
         cell.catalogName.text = feedCatalog[indexPath.row]
+        cell.catalogName.backgroundColor = UIColor.init(colorLiteralRed: catalogColor[indexPath.item]![0], green: catalogColor[indexPath.item]![1], blue: catalogColor[indexPath.item]![2], alpha: 50)
         return cell
         
         

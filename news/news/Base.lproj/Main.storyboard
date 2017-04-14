@@ -41,24 +41,21 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cj9-Ef-QNX">
-                                                    <rect key="frame" x="64" y="128" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="170" height="153"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                    <color key="textColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ilW-1v-qOC">
-                                                    <rect key="frame" x="15" y="0.0" width="140" height="129"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="cj9-Ef-QNX" firstAttribute="top" secondItem="J77-b1-cmN" secondAttribute="topMargin" constant="120" id="6Sj-nS-hot"/>
-                                            <constraint firstItem="cj9-Ef-QNX" firstAttribute="centerX" secondItem="J77-b1-cmN" secondAttribute="centerX" id="OMw-rR-CxC"/>
+                                            <constraint firstItem="cj9-Ef-QNX" firstAttribute="leading" secondItem="J77-b1-cmN" secondAttribute="leading" id="FxI-dR-RVK"/>
+                                            <constraint firstItem="cj9-Ef-QNX" firstAttribute="top" secondItem="J77-b1-cmN" secondAttribute="top" id="hwe-30-kpU"/>
+                                            <constraint firstAttribute="trailing" secondItem="cj9-Ef-QNX" secondAttribute="trailing" id="wFj-pR-JMo"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="cj9-Ef-QNX" secondAttribute="bottom" id="yCK-Xe-SA6"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="catalogName" destination="cj9-Ef-QNX" id="QRd-V6-wBb"/>
-                                            <outlet property="catalogPicture" destination="ilW-1v-qOC" id="lVv-0S-5H7"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
