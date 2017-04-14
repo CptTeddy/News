@@ -265,7 +265,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="didAttemptLogin:" destination="5Iz-6e-oRZ" eventType="touchUpInside" id="eGA-xK-oLU"/>
+                                    <action selector="tryLogIn:" destination="5Iz-6e-oRZ" eventType="touchUpInside" id="neH-jm-K3V"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Lj-es-DlZ">
@@ -278,6 +278,9 @@
                                 <state key="normal" title="Or, Sign Up">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="goToSignUp:" destination="5Iz-6e-oRZ" eventType="touchUpInside" id="B0C-Ak-9wU"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log In" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H45-yo-GsO">
                                 <rect key="frame" x="158" y="122" width="59" height="27.5"/>
@@ -330,10 +333,9 @@
                     </view>
                     <connections>
                         <outlet property="email" destination="I9Y-pF-m3T" id="KBX-g9-pbQ"/>
-                        <outlet property="emailField" destination="I9Y-pF-m3T" id="ftO-hT-bGq"/>
                         <outlet property="password" destination="dF1-CU-VuQ" id="70t-7a-WKD"/>
-                        <outlet property="passwordField" destination="dF1-CU-VuQ" id="IFE-0F-u7I"/>
                         <segue destination="FUU-BJ-1W7" kind="show" identifier="LogInToSignUp" id="7NJ-EZ-bHo"/>
+                        <segue destination="NJI-nZ-nH8" kind="show" identifier="loginToMain" id="TO9-ib-ciP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9V4-sO-dH1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -390,7 +392,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="didAttemptSignup:" destination="FUU-BJ-1W7" eventType="touchUpInside" id="nOu-cg-9sG"/>
                                     <action selector="trySignUp:" destination="FUU-BJ-1W7" eventType="touchUpInside" id="Xdm-qT-tmW"/>
                                 </connections>
                             </button>
@@ -428,6 +429,9 @@
                                 <state key="normal" title="Or, Log In">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="goToSignIn:" destination="FUU-BJ-1W7" eventType="touchUpInside" id="yYC-Fv-AyV"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TOj-Ni-JPe">
                                 <rect key="frame" x="148" y="78" width="78" height="27.5"/>
@@ -466,16 +470,18 @@
                     </view>
                     <connections>
                         <outlet property="email" destination="lkA-p7-K7U" id="3fn-bF-PtL"/>
-                        <outlet property="emailField" destination="lkA-p7-K7U" id="TRC-Hv-7c8"/>
                         <outlet property="name" destination="QjU-4A-E51" id="uw2-SN-GI5"/>
-                        <outlet property="nameField" destination="QjU-4A-E51" id="nka-f0-tSI"/>
                         <outlet property="password" destination="zdz-ZR-fbB" id="fTW-Hg-bGg"/>
                         <segue destination="NJI-nZ-nH8" kind="show" identifier="SignUpToMain" id="7MQ-XS-etD"/>
+                        <segue destination="5Iz-6e-oRZ" kind="show" identifier="SignUpToLogIn" id="bEN-FI-4KJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rpx-zU-bz7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2399" y="76"/>
+            <point key="canvasLocation" x="-3414" y="224"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="TO9-ib-ciP"/>
+    </inferredMetricsTieBreakers>
 </document>

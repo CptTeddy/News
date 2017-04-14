@@ -36,10 +36,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             (user,error) in
             if let error = error{
                 print(error)
-                let alert = UIAlertController(title: "Log in fail", message: error.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "okay", style: UIAlertActionStyle.default, handler: { (action) in
-                    
-                }))
+                let alert = UIAlertController(title: "Sign up failed. Please try again!", message: error.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "huh okay", style: UIAlertActionStyle.default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
                 
             }else{
@@ -48,16 +46,27 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                 changeRequest.commitChanges(completion: {
                     (err) in
                     if let err = err{
-                        
+                        let alert = UIAlertController(title: "Sign up failed. Please try again!", message:
+                            err.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+                        alert.addAction(UIAlertAction(title: "huh okay", style: UIAlertActionStyle.default, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
                     }else{
-                        
+                        self.performSegue(withIdentifier: "SignUpToMain", sender: self)
                     }
                     
                 })
                 
+                
             }
             
         })
+    }
+    
+    
+    
+    
+    @IBAction func goToSignIn(_ sender: Any) {
+        self.performSegue(withIdentifier: "SignUpToLogIn", sender: self)
     }
     
     

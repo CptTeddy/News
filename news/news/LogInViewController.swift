@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+
 
 class LogInViewController: UIViewController {
 
@@ -23,7 +25,26 @@ class LogInViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func tryLogIn(_ sender: Any) {
+        guard let emailText = email.text else { return }
+        guard let passwordText = password.text else { return }
+        
+        // YOUR CODE HERE
+        FIRAuth.auth()?.signIn(withEmail: emailText, password: passwordText, completion: {(user, error) in
+            if let error = error {
+                let alert = UIAlertController(title: "Sign in failed. Please try again!", message: error.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "huh okay", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            } else {
+                self.performSegue(withIdentifier: "loginToMain", sender: self)
+            }
+        })
 
+    }
+
+    @IBAction func goToSignUp(_ sender: Any) {
+        self.performSegue(withIdentifier: "LogInToSignUp", sender: self)
+    }
     /*
     // MARK: - Navigation
 
