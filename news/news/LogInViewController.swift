@@ -16,9 +16,18 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var password: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
         // Do any additional setup after loading the view.
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        // Checks if user is already signed in and skips login
+        if FIRAuth.auth()?.currentUser != nil {
+            self.performSegue(withIdentifier: "loginToMain", sender: self)
+        }
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
