@@ -1,6 +1,7 @@
 
 # Uncomment the next line to define a global platform for your project
 
+pod 'Firebase/Core'
 
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '10.0'
@@ -10,3 +11,5 @@ target 'news' do
 pod 'Alamofire', '~> 4.4'
 pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
 end
+
+
