@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
+
 
 
 class LogInViewController: UIViewController {
@@ -46,6 +48,9 @@ class LogInViewController: UIViewController {
                 self.present(alert, animated: true, completion: nil)
             } else {
                 self.performSegue(withIdentifier: "loginToMain", sender: self)
+                let currentUser = FIRAuth.auth()?.currentUser
+                let id = currentUser?.uid
+                downloadUserData(userId: id!)
             }
         })
 

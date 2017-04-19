@@ -23,9 +23,7 @@ class RequestModel{
         
     
     
-    //    func parseArticle(_ json: JSON) -> NewsArticle {
-    //        return NewsArticle(imageLink: json["urlToImage"].stringValue, title: json["title"].stringValue)
-    //    }
+
     
     
 }

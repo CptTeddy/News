@@ -14,7 +14,7 @@ class newsListUIViewController: UIViewController, UITableViewDelegate, UITableVi
     
     var catalogName:String?
     var feedArray:[News] = [News]()
-    var KEY = "09198f4fbe3e46b6b4585afce93a0542"
+    
 
     @IBOutlet weak var newsTableView: UITableView!
     
@@ -53,7 +53,8 @@ class newsListUIViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "newsListToNewsWeb", sender: self.feedArray[indexPath.row])
-
+        let title = feedArray[indexPath.row].title
+        updateNewsLocal(newsTitle: title!, category:self.catalogName!, upvote: true)
     }
     
     func makeRequest(newsCatelog: String){
