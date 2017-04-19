@@ -192,10 +192,10 @@
             </objects>
             <point key="canvasLocation" x="-508" y="-778"/>
         </scene>
-        <!--Item-->
+        <!--Recommend-->
         <scene sceneID="c0J-Yg-G2C">
             <objects>
-                <viewController id="wZb-mf-zpB" customClass="RecommendViewController" customModule="news" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Recommend" id="wZb-mf-zpB" customClass="RecommendViewController" customModule="news" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tBq-Ln-cv6"/>
                         <viewControllerLayoutGuide type="bottom" id="bnr-SL-zx9"/>
@@ -205,7 +205,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="Sm4-38-7Gf"/>
+                    <tabBarItem key="tabBarItem" title="Recommend" id="Sm4-38-7Gf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5CD-fH-64I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
