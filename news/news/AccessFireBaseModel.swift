@@ -106,7 +106,12 @@ func fetchNews(){
                                     urlToImage: article["urlToImage"].stringValue,
                                     publishedAt: article["publishedAt"].stringValue)
                     var newsLst = newsData[resource]
+                    if newsLst == nil {
+                        var lst = [News]()
+                        newsData[resource] = lst
+                    } else {
                     newsLst!.append(news)
+                    }
                 }
             })
         }
