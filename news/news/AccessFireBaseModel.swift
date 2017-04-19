@@ -89,11 +89,12 @@ func uploadUserData(userId: String){
 
 
 func fetchNews(){
-    for (cats,resources) in catalogSource{
+    for (cat,resources) in catalogSource{
         for resource in resources as [String]{
             let url = "https://newsapi.org/v1/articles?source="+resource+"&sortBy=top&apiKey="+KEY;
             Alamofire.request(url).responseJSON(completionHandler: { response in
                 if response.result.isFailure {
+                    print("failed")
                     return
                 }
                 var articles = JSON(response.data!)["articles"]
@@ -105,15 +106,18 @@ func fetchNews(){
                                     url: article["url"].stringValue,
                                     urlToImage: article["urlToImage"].stringValue,
                                     publishedAt: article["publishedAt"].stringValue)
-                    var newsLst = newsData[resource]
+                    var newsLst = newsData[cat]
                     if newsLst == nil {
                         var lst = [News]()
-                        newsData[resource] = lst
-                    } else {
-                    newsLst!.append(news)
+                        newsData[cat] = lst
                     }
+                    newsLst = newsData[cat]
+                    newsData[cat]! += [news]
+                    
                 }
             })
         }
     }
 }
+
+

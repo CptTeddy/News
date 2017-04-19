@@ -58,31 +58,13 @@ class newsListUIViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func makeRequest(newsCatelog: String){
-        let APIsources = catalogSource[newsCatelog]
-        for APIsource in APIsources!{
-            let url = "https://newsapi.org/v1/articles?source="+APIsource+"&sortBy=top&apiKey="+KEY;
-            Alamofire.request(url).responseJSON(completionHandler: { response in
-                if response.result.isFailure {
-                    return
-                }
-                
-                
-                var articles = JSON(response.data!)["articles"]
-                for var articleTuple in articles{
-                    var article = articleTuple.1
-                    var news = News(author:article["article"].stringValue,
-                                    title: article["title"].stringValue,
-                                    description: article["description"].stringValue,
-                                    url: article["url"].stringValue,
-                                    urlToImage: article["urlToImage"].stringValue,
-                                    publishedAt: article["publishedAt"].stringValue)
-                    self.feedArray.append(news)
-                    
-                }
-                self.newsTableView.reloadData()
-                
-            })
+        let newses = newsData[newsCatelog]
+        for var news in newses!{
+                self.feedArray.append(news)
+            
         }
+        self.newsTableView.reloadData()
+
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
