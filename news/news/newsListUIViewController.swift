@@ -23,8 +23,10 @@ class newsListUIViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         newsTableView.delegate = self
+        let notificationKey = "finishedSorting"
         newsTableView.dataSource = self
         makeRequest(newsCatelog: self.catalogName!)
+        NotificationCenter.default.addObserver(self, selector: #selector(newsListUIViewController.reloadView), name: NSNotification.Name(rawValue: notificationKey), object: nil)
 
 
         // Do any additional setup after loading the view.
@@ -79,10 +81,15 @@ class newsListUIViewController: UIViewController, UITableViewDelegate, UITableVi
                     self.feedArray.append(news)
                     
                 }
+                
                 self.newsTableView.reloadData()
                 
             })
         }
+    }
+    
+    func reloadView() {
+        self.newsTableView.reloadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

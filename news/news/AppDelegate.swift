@@ -18,8 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FIRApp.configure()
+        let notificationKey = "finishedSorting"
         // Override point for customization after application launch.
         fetchNews()
+        NotificationCenter.default.post(name: Notification.Name(rawValue: notificationKey))
         return true
     }
 
