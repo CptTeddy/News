@@ -60,6 +60,7 @@ class newsListUIViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func makeRequest(newsCatelog: String){
+<<<<<<< HEAD
         let APIsources = catalogSource[newsCatelog]
         for APIsource in APIsources!{
             let url = "https://newsapi.org/v1/articles?source="+APIsource+"&sortBy=top&apiKey="+KEY;
@@ -85,7 +86,15 @@ class newsListUIViewController: UIViewController, UITableViewDelegate, UITableVi
                 self.newsTableView.reloadData()
                 
             })
+=======
+        let newses = newsData[newsCatelog]
+        for var news in newses!{
+                self.feedArray.append(news)
+            
+>>>>>>> aa0a25e90ebc1bddd51e6ceee066d76498ca8422
         }
+        self.newsTableView.reloadData()
+
     }
     
     func reloadView() {
