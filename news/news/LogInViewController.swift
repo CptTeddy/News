@@ -16,10 +16,10 @@ class LogInViewController: UIViewController {
 
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
         // Do any additional setup after loading the view.
     }
     
@@ -61,6 +61,8 @@ class LogInViewController: UIViewController {
     @IBAction func goToSignUp(_ sender: Any) {
         self.performSegue(withIdentifier: "LogInToSignUp", sender: self)
     }
+
+    
     /*
     // MARK: - Navigation
 

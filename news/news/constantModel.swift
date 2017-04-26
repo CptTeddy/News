@@ -13,11 +13,6 @@ import FirebaseAuth
 
 
 
-
-
-
-
-
 let KEY = "09198f4fbe3e46b6b4585afce93a0542"
 
 let feedCatalog = ["General", "Technology", "Business", "Sport", "Politics", "Entertainment", "Music", "Science", "gaming"]

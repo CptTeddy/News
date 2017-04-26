@@ -12,15 +12,19 @@ import FirebaseDatabase
 import FirebaseAuth
 import Alamofire
 
-func sortNews() {
-    let downloadNotificationKey = "finishedDownload"
-    NotificationCenter.default.addObserver(self, selector: startSortNews, name: NSNotification.Name(rawValue: downloadNotificationKey), object: nil)
-}
+class sortModel {
 
-func startSortNews() {
-    var userWordCount = currentUserWordCount
-    var userCategoryCount = currentUserCategoryCount
-    var news = newsData
-    // Till this point all data (news and users') should have been loaded if there is any.
+    init() {
+        let downloadNotificationKey = "finishedDownload"
+        NotificationCenter.default.addObserver(self, selector: #selector(sortModel.startSortNews), name: NSNotification.Name(rawValue: downloadNotificationKey), object: nil)
+    }
+    
+    @objc func startSortNews() {
+        var userWordCount = currentUserWordCount
+        var userCategoryCount = currentUserCategoryCount
+        var news = newsData
+        // Till this point all data (news and users') should have been loaded if there is any.
+    
+    }
 }
 

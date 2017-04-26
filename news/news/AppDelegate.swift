@@ -24,7 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             newsData[type] = [News]()
         }
         fetchNews()
-        sortNews() // To be finished
+        sortModel()
+        // Initializing a new sortModel class, download user data and news data, and sort.
         NotificationCenter.default.post(name: Notification.Name(rawValue: notificationKey), object: self)
         return true
     }
