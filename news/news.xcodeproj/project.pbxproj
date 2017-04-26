@@ -25,6 +25,8 @@
 		BF301AA61E96AE7900D1215C /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF301AA51E96AE7900D1215C /* News.swift */; };
 		BF301AA81E96C3E000D1215C /* newsWebUIVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF301AA71E96C3E000D1215C /* newsWebUIVIewController.swift */; };
 		BF3DF6141EA7295100AC8B50 /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3DF6131EA7295100AC8B50 /* RecommendViewController.swift */; };
+		BF4270E31EB0586900ACEF6E /* TopHitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4270E21EB0586900ACEF6E /* TopHitCell.swift */; };
+		BF4270E51EB059AB00ACEF6E /* PersonalControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4270E41EB059AB00ACEF6E /* PersonalControllerViewController.swift */; };
 		BF7AD1101EA07A9B0086598C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7AD10F1EA07A9B0086598C /* SignUpViewController.swift */; };
 		BF7AD1121EA07AC30086598C /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7AD1111EA07AC30086598C /* LogInViewController.swift */; };
 		BF7AD1141EA091CB0086598C /* AccessFireBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7AD1131EA091CB0086598C /* AccessFireBaseModel.swift */; };
@@ -73,6 +75,8 @@
 		BF301AA51E96AE7900D1215C /* News.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		BF301AA71E96C3E000D1215C /* newsWebUIVIewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = newsWebUIVIewController.swift; sourceTree = "<group>"; };
 		BF3DF6131EA7295100AC8B50 /* RecommendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
+		BF4270E21EB0586900ACEF6E /* TopHitCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopHitCell.swift; sourceTree = "<group>"; };
+		BF4270E41EB059AB00ACEF6E /* PersonalControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalControllerViewController.swift; sourceTree = "<group>"; };
 		BF7AD10F1EA07A9B0086598C /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		BF7AD1111EA07AC30086598C /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		BF7AD1131EA091CB0086598C /* AccessFireBaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessFireBaseModel.swift; sourceTree = "<group>"; };
@@ -178,6 +182,7 @@
 				BF7AD10F1EA07A9B0086598C /* SignUpViewController.swift */,
 				BF7AD1111EA07AC30086598C /* LogInViewController.swift */,
 				BF3DF6131EA7295100AC8B50 /* RecommendViewController.swift */,
+				BF4270E41EB059AB00ACEF6E /* PersonalControllerViewController.swift */,
 				BF205C781E95F96A00DB5C6B /* cells */,
 			);
 			name = controllers;
@@ -187,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				BF205C7A1E95F9F300DB5C6B /* feedListCollectionViewCell.swift */,
+				BF4270E21EB0586900ACEF6E /* TopHitCell.swift */,
 				BF301A9A1E9619E100D1215C /* newsTableViewCell.swift */,
 			);
 			name = cells;
@@ -402,6 +408,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF4270E31EB0586900ACEF6E /* TopHitCell.swift in Sources */,
 				BF7AD1101EA07A9B0086598C /* SignUpViewController.swift in Sources */,
 				BF205C7D1E95FA8700DB5C6B /* constantModel.swift in Sources */,
 				BF205C7B1E95F9F300DB5C6B /* feedListCollectionViewCell.swift in Sources */,
@@ -409,6 +416,7 @@
 				BF301AA61E96AE7900D1215C /* News.swift in Sources */,
 				BF205C4A1E95D65B00DB5C6B /* ViewController.swift in Sources */,
 				BF301A9B1E9619E100D1215C /* newsTableViewCell.swift in Sources */,
+				BF4270E51EB059AB00ACEF6E /* PersonalControllerViewController.swift in Sources */,
 				BF7AD1141EA091CB0086598C /* AccessFireBaseModel.swift in Sources */,
 				BF205C481E95D65B00DB5C6B /* AppDelegate.swift in Sources */,
 				BF3DF6141EA7295100AC8B50 /* RecommendViewController.swift in Sources */,
