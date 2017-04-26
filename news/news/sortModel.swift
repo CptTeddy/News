@@ -31,8 +31,8 @@ class sortModel {
                 newsScore.append((eachNews, itsScore))
             }
         }
-        var sortedNewsScore = newsScore.sort(by: {$0[1]>$1[1]})
-        sortedScore = sortedNewsScore
+        newsScore.sort(by: {$0.1>$1.1})
+        sortedScore = newsScore
 //        var sortedNewsScore = newsScore.sortedArrayUsingComparator {
 //            (tuple1, tuple2) -> ComparisonResult in
 //            
