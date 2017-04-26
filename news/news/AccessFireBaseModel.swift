@@ -117,6 +117,9 @@ func fetchNews(){
                     newsData[cat]! += [news]
                     
                 }
+                let notificationKey = "finishedSorting"
+
+                NotificationCenter.default.post(name: Notification.Name(rawValue: notificationKey), object: nil)
             })
         }
     }

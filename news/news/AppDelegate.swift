@@ -18,15 +18,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FIRApp.configure()
-        let notificationKey = "finishedSorting"
         // Override point for customization after application launch.
         for var type in feedCatalog{
             newsData[type] = [News]()
         }
         fetchNews()
+        if FIRAuth.auth()?.currentUser != nil {
+            let id = FIRAuth.auth()?.currentUser?.uid
+            downloadUserData(userId: id!)
+        }
+
         sortModel()
         // Initializing a new sortModel class, download user data and news data, and sort.
-        NotificationCenter.default.post(name: Notification.Name(rawValue: notificationKey), object: self)
+        
         return true
     }
 
