@@ -60,6 +60,9 @@ func downloadUserData(userId: String){
                     let count = Int(value as! NSNumber)
                     currentUserWordCount[key] = count
                 }
+                let notificationKey = "finishedDownloadWordCount"
+                
+                NotificationCenter.default.post(name: Notification.Name(rawValue: notificationKey), object: nil)
             }
         }
         
@@ -89,6 +92,8 @@ func uploadUserData(userId: String){
     }
     
 }
+
+
 
 
 

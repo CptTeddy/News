@@ -10,15 +10,32 @@ import UIKit
 
 class PersonalControllerViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
+    @IBOutlet weak var topHitsCollectionView: UICollectionView!
     var topHits : [String] = []
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidLoad()
-        let k = currentUserWordCount
-        print("???")
-        print(k.flatMap({$0}).sorted { $0.0.1 < $0.1.1 })
+        print(currentUserWordCount.flatMap({$0}).sorted { $0.0.1 > $0.1.1 })
         topHits = Array(currentUserWordCount.keys)
         
+        
 
+    }
+    
+    override func viewDidLoad() {
+        let notificationKey = "finishedDownloadWordCount"
+        topHitsCollectionView.delegate = self
+        topHitsCollectionView.dataSource = self
+
+        NotificationCenter.default.addObserver(self, selector: #selector(PersonalControllerViewController.reloadTopView), name: NSNotification.Name(rawValue: notificationKey), object: nil)
+    }
+    
+    func reloadTopView(){
+        print(currentUserWordCount.flatMap({$0}).sorted { $0.0.1 > $0.1.1 })
+        topHits = Array(currentUserWordCount.keys)
+        topHits = Array(topHits[0...10])
+        topHitsCollectionView.reloadData()
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
