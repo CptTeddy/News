@@ -52,6 +52,8 @@ class LogInViewController: UIViewController {
                 let id = currentUser?.uid
                 downloadUserData(userId: id!)
             }
+            let downloadNotificationKey = "finishedDownload"
+            NotificationCenter.default.post(name: Notification.Name(rawValue: downloadNotificationKey), object: self)
         })
 
     }

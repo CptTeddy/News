@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let notificationKey = "finishedSorting"
         // Override point for customization after application launch.
         fetchNews()
+        sortNews() // To be finished
         NotificationCenter.default.post(name: Notification.Name(rawValue: notificationKey), object: self)
         return true
     }
