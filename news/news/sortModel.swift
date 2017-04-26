@@ -24,7 +24,25 @@ class sortModel {
         var userCategoryCount = currentUserCategoryCount
         var news = newsData
         // Till this point all data (news and users') should have been loaded if there is any.
-    
+        var newsScore = [(News, Int)]()
+        for eachType in news.values {
+            for eachNews in eachType {
+                var itsScore = 0 // Weighing.
+                newsScore.append((eachNews, itsScore))
+            }
+        }
+        var sortedNewsScore = newsScore.sort(by: {$0[1]>$1[1]})
+        sortedScore = sortedNewsScore
+//        var sortedNewsScore = newsScore.sortedArrayUsingComparator {
+//            (tuple1, tuple2) -> ComparisonResult in
+//            
+//            let result = tuple1[1].compare(tuple2[1])
+//            return result
+//        }
+//        var sortedNewsScore = [News:Int]()
+//        for (news,score) in (Array(newsScore).sorted {$0.1 > $1.1}) {
+//            sortedNewsScore[news] = score
+//        }
     }
 }
 

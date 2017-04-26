@@ -23,6 +23,7 @@ import SwiftyJSON
 var currentUserWordCount = [String: Int]()
 var currentUserCategoryCount = [String: Int]()
 var newsData = [String:[News]]()
+var sortedScore = [(News,Int)]()
 
 
 func updateNewsLocal(newsTitle: String, category:String, upvote: Bool){
