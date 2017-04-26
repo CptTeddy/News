@@ -25,9 +25,14 @@ class sortModel {
         var news = newsData
         // Till this point all data (news and users') should have been loaded if there is any.
         var newsScore = [(News, Int)]()
-        for eachType in news.values {
-            for eachNews in eachType {
-                var itsScore = 0 // Weighing.
+        for (type, newsList) in news {
+            for eachNews in newsList {
+                var categoryScore = 0
+                var wordScore = 0
+                if userCategoryCount.keys.contains(type) {
+                    categoryScore = userCategoryCount[type]!
+                }
+                var itsScore = categoryScore // Weighing.
                 newsScore.append((eachNews, itsScore))
             }
         }
