@@ -24,6 +24,7 @@ var currentUserWordCount = [String: Int]()
 var currentUserCategoryCount = [String: Int]()
 var newsData = [String:[News]]()
 
+
 func updateNewsLocal(newsTitle: String, category:String, upvote: Bool){
     
     let wordList = newsTitle.components(separatedBy: " ")

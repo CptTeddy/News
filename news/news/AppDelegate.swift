@@ -20,6 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FIRApp.configure()
         let notificationKey = "finishedSorting"
         // Override point for customization after application launch.
+        for var type in feedCatalog{
+            newsData[type] = [News]()
+        }
         fetchNews()
         sortNews() // To be finished
         NotificationCenter.default.post(name: Notification.Name(rawValue: notificationKey), object: self)
