@@ -14,7 +14,7 @@ class PersonalControllerViewController: UIViewController, UICollectionViewDataSo
     var topHits : [String] = []
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidLoad()
-        print(currentUserWordCount.flatMap({$0}).sorted { $0.0.1 > $0.1.1 })
+//        print(currentUserWordCount.flatMap({$0}).sorted { $0.0.1 > $0.1.1 })
         topHits = Array(currentUserWordCount.keys)
         
         
@@ -30,7 +30,7 @@ class PersonalControllerViewController: UIViewController, UICollectionViewDataSo
     }
     
     func reloadTopView(){
-        print(currentUserWordCount.flatMap({$0}).sorted { $0.0.1 > $0.1.1 })
+//        print(currentUserWordCount.flatMap({$0}).sorted { $0.0.1 > $0.1.1 })
         topHits = Array(currentUserWordCount.keys)
         topHits = Array(topHits[0...10])
         topHitsCollectionView.reloadData()

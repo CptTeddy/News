@@ -19,7 +19,6 @@ class sortModel {
         print("hello")
         NotificationCenter.default.addObserver(self, selector: #selector(self.startSortNews), name: NSNotification.Name(rawValue: downloadNotificationKey), object: nil)
         print("hi")
-        self.startSortNews()
     }
     
     @objc func startSortNews() {
@@ -27,6 +26,7 @@ class sortModel {
         var userWordCount = currentUserWordCount
         var userCategoryCount = currentUserCategoryCount
         var news = newsData
+        
         // Till this point all data (news and users') should have been loaded if there is any.
         var newsScore = [(News, Int)]()
         for (type, newsList) in news {
@@ -40,9 +40,11 @@ class sortModel {
                 newsScore.append((eachNews, itsScore))
             }
         }
+        print(newsScore)
         newsScore.sort(by: {$0.1>$1.1})
         sortedScore = newsScore
         print("finish sorting")
+        print(sortedScore)
     }
 }
 

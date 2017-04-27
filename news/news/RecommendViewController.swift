@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 import Alamofire
 import SwiftyJSON
 
@@ -17,6 +19,10 @@ class RecommendViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let currentUser = FIRAuth.auth()?.currentUser
+        let id = currentUser?.uid
+        downloadUserData(userId: id!)
+        sortModel().startSortNews()
         recommendNewsTableViews.delegate = self
         recommendNewsTableViews.dataSource = self
         let finishSortSignal = "finished sorting"
@@ -32,12 +38,11 @@ class RecommendViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(sortedScore)
         return sortedScore.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "newsCell") as! newsTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "newsCell") as! recommendNewsTableViewCell
         cell.newsTitle.text = sortedScore[indexPath.row].0.title
         Alamofire.request(sortedScore[indexPath.row].0.urlToImage!).responseData(completionHandler: { response in
             if let data = response.result.value {
