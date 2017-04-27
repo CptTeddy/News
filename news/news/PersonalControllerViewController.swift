@@ -7,15 +7,36 @@
 //
 
 import UIKit
-
+import Firebase
+import FirebaseAuth
 class PersonalControllerViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
+    @IBAction func logOut(_ sender: Any) {
+        let firebaseAuth = FIRAuth.auth()
+        do {
+            try firebaseAuth?.signOut()
+            self.performSegue(withIdentifier: "personalToLogin", sender: self)
+            
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+    }
+    @IBOutlet weak var username: UILabel!
     @IBOutlet weak var topHitsCollectionView: UICollectionView!
     var topHits : [String] = []
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidLoad()
         print(currentUserWordCount.flatMap({$0}).sorted { $0.0.1 > $0.1.1 })
         topHits = Array(currentUserWordCount.keys)
+        if FIRAuth.auth()?.currentUser != nil {
+            let email = FIRAuth.auth()?.currentUser?.email
+            self.username.text = email
+        }
+
+        
+
+
+        
         
         
 

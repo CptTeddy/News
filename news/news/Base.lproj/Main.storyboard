@@ -257,7 +257,7 @@
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wXO-AM-E4W">
-                                <rect key="frame" x="68" y="87" width="125" height="21"/>
+                                <rect key="frame" x="25" y="87" width="211" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -267,6 +267,9 @@
                                 <rect key="frame" x="254" y="82" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="logOut:" destination="GhT-BD-ru5" eventType="touchUpInside" id="w40-ve-Swd"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -274,11 +277,13 @@
                     <tabBarItem key="tabBarItem" title="Personal" id="DaZ-JG-LDV"/>
                     <connections>
                         <outlet property="topHitsCollectionView" destination="D3m-Um-Zi7" id="y10-Mj-8zv"/>
+                        <outlet property="username" destination="wXO-AM-E4W" id="3AR-94-wz1"/>
+                        <segue destination="5Iz-6e-oRZ" kind="show" identifier="personalToLogin" id="JYV-O6-qrf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uJT-Pn-7Mi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-335.19999999999999" y="113.79310344827587"/>
+            <point key="canvasLocation" x="-1838" y="839"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="gno-bj-2ol">
@@ -558,5 +563,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="TO9-ib-ciP"/>
+        <segue reference="JYV-O6-qrf"/>
     </inferredMetricsTieBreakers>
 </document>
