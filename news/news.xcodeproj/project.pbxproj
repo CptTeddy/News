@@ -10,6 +10,7 @@
 		8F064365C03DAD84943C4368 /* Pods_news.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAAD22964D67C70C19D7718A /* Pods_news.framework */; };
 		ADA915E31EA07F0E00DF7312 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ADA915E21EA07F0E00DF7312 /* GoogleService-Info.plist */; };
 		ADC83EBD1EB04994004E4745 /* sortModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC83EBC1EB04994004E4745 /* sortModel.swift */; };
+		ADC83EBF1EB0695B004E4745 /* recommendNewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC83EBE1EB0695B004E4745 /* recommendNewsTableViewCell.swift */; };
 		BF205C481E95D65B00DB5C6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF205C471E95D65B00DB5C6B /* AppDelegate.swift */; };
 		BF205C4A1E95D65B00DB5C6B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF205C491E95D65B00DB5C6B /* ViewController.swift */; };
 		BF205C4D1E95D65B00DB5C6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF205C4B1E95D65B00DB5C6B /* Main.storyboard */; };
@@ -55,6 +56,7 @@
 		69984CD868FFE14FFF6BE471 /* Pods-news.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-news.debug.xcconfig"; path = "Pods/Target Support Files/Pods-news/Pods-news.debug.xcconfig"; sourceTree = "<group>"; };
 		ADA915E21EA07F0E00DF7312 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		ADC83EBC1EB04994004E4745 /* sortModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sortModel.swift; sourceTree = "<group>"; };
+		ADC83EBE1EB0695B004E4745 /* recommendNewsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = recommendNewsTableViewCell.swift; sourceTree = "<group>"; };
 		BF205C441E95D65B00DB5C6B /* news.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = news.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF205C471E95D65B00DB5C6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF205C491E95D65B00DB5C6B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 		BF205C781E95F96A00DB5C6B /* cells */ = {
 			isa = PBXGroup;
 			children = (
+				ADC83EBE1EB0695B004E4745 /* recommendNewsTableViewCell.swift */,
 				BF205C7A1E95F9F300DB5C6B /* feedListCollectionViewCell.swift */,
 				BF4270E21EB0586900ACEF6E /* TopHitCell.swift */,
 				BF301A9A1E9619E100D1215C /* newsTableViewCell.swift */,
@@ -425,6 +428,7 @@
 				ADC83EBD1EB04994004E4745 /* sortModel.swift in Sources */,
 				BF3DF6141EA7295100AC8B50 /* RecommendViewController.swift in Sources */,
 				BF7AD1121EA07AC30086598C /* LogInViewController.swift in Sources */,
+				ADC83EBF1EB0695B004E4745 /* recommendNewsTableViewCell.swift in Sources */,
 				BF301A991E9618E700D1215C /* newsListUIViewController.swift in Sources */,
 				BF301AA81E96C3E000D1215C /* newsWebUIVIewController.swift in Sources */,
 				BF301AA41E96AD2700D1215C /* RequestModel.swift in Sources */,

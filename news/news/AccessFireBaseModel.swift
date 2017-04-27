@@ -78,6 +78,8 @@ func downloadUserData(userId: String){
         }
         
     })
+    let downloadNotificationKey = "finishedDownload"
+    NotificationCenter.default.post(name: Notification.Name(rawValue: downloadNotificationKey), object: nil)
 }
 
 func uploadUserData(userId: String){

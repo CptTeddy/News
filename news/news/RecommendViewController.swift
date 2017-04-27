@@ -7,20 +7,71 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
+import Alamofire
+import SwiftyJSON
 
-class RecommendViewController: UIViewController {
+class RecommendViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    var catalogName:String?
+    var feedArray:[News] = [News]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let currentUser = FIRAuth.auth()?.currentUser
+        let id = currentUser?.uid
+        downloadUserData(userId: id!)
+        sortModel().startSortNews()
+        recommendNewsTableViews.delegate = self
+        recommendNewsTableViews.dataSource = self
+        let finishSortSignal = "finished sorting"
+        NotificationCenter.default.addObserver(self, selector: #selector(RecommendViewController.reloadView), name: NSNotification.Name(rawValue: finishSortSignal), object: nil)
         // Do any additional setup after loading the view.
     }
+    
+    @IBOutlet weak var recommendNewsTableViews: UITableView!
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return sortedScore.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "newsCell") as! recommendNewsTableViewCell
+        cell.newsTitle.text = sortedScore[indexPath.row].0.title
+        Alamofire.request(sortedScore[indexPath.row].0.urlToImage!).responseData(completionHandler: { response in
+            if let data = response.result.value {
+                cell.newsImage.image = UIImage(data: data)
+            }
+        })
+        return cell
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "newsListToNewsWeb", sender: sortedScore[indexPath.row].0)
+        let title = sortedScore[indexPath.row].0.title
+        updateNewsLocal(newsTitle: title!, category:self.catalogName!, upvote: true)
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationVC = segue.destination as? newsWebUIVIewController {
+            if let sender = sender{
+                let news = sender as! News
+                destinationVC.url = news.url!
+            }
+        }
+    }
+    
+    func reloadView() {
+        self.recommendNewsTableViews.reloadData()
+    }
 
     /*
     // MARK: - Navigation
