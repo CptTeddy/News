@@ -17,6 +17,8 @@ let KEY = "09198f4fbe3e46b6b4585afce93a0542"
 
 let feedCatalog = ["General", "Technology", "Business", "Sport", "Politics", "Entertainment", "Music", "Science", "gaming"]
 
+let recommendNumber = 25
+
 let catalogSource:[String:[String]] = ["General": ["abc-news-au","associated-press","al-jazeera-english", "bbc-news",
                                                    "bild","cnn", "der-tagesspiegel", "focus", "football-italia",
                                                     "google-news", "independent", "metro", "mirror", "newsweek",
