@@ -32,6 +32,7 @@
 		BF7AD1101EA07A9B0086598C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7AD10F1EA07A9B0086598C /* SignUpViewController.swift */; };
 		BF7AD1121EA07AC30086598C /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7AD1111EA07AC30086598C /* LogInViewController.swift */; };
 		BF7AD1141EA091CB0086598C /* AccessFireBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7AD1131EA091CB0086598C /* AccessFireBaseModel.swift */; };
+		BFC367DC1EB2DC1500E36021 /* recommendWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC367DB1EB2DC1500E36021 /* recommendWebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		BF7AD10F1EA07A9B0086598C /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		BF7AD1111EA07AC30086598C /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		BF7AD1131EA091CB0086598C /* AccessFireBaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessFireBaseModel.swift; sourceTree = "<group>"; };
+		BFC367DB1EB2DC1500E36021 /* recommendWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = recommendWebViewController.swift; sourceTree = "<group>"; };
 		DAAD22964D67C70C19D7718A /* Pods_news.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_news.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -187,6 +189,7 @@
 				BF7AD1111EA07AC30086598C /* LogInViewController.swift */,
 				BF3DF6131EA7295100AC8B50 /* RecommendViewController.swift */,
 				BF4270E41EB059AB00ACEF6E /* PersonalControllerViewController.swift */,
+				BFC367DB1EB2DC1500E36021 /* recommendWebViewController.swift */,
 				BF205C781E95F96A00DB5C6B /* cells */,
 			);
 			name = controllers;
@@ -431,6 +434,7 @@
 				ADC83EBF1EB0695B004E4745 /* recommendNewsTableViewCell.swift in Sources */,
 				BF301A991E9618E700D1215C /* newsListUIViewController.swift in Sources */,
 				BF301AA81E96C3E000D1215C /* newsWebUIVIewController.swift in Sources */,
+				BFC367DC1EB2DC1500E36021 /* recommendWebViewController.swift in Sources */,
 				BF301AA41E96AD2700D1215C /* RequestModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

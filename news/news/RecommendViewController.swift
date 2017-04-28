@@ -74,13 +74,14 @@ class RecommendViewController: UIViewController, UITableViewDelegate, UITableVie
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destinationVC = segue.destination as? newsWebUIVIewController {
+        if let destinationVC = segue.destination as? recommendWebViewController {
             if let sender = sender{
                 let news = sender as! News
                 destinationVC.url = news.url!
             }
         }
     }
+
     
     func reloadView() {
         self.recommendNewsTableViews.reloadData()

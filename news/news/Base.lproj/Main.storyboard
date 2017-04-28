@@ -155,7 +155,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VOX-5L-uuA">
-                                <rect key="frame" x="8" y="54" width="359" height="594"/>
+                                <rect key="frame" x="8" y="10" width="359" height="638"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
                         </subviews>
@@ -175,11 +175,11 @@
             </objects>
             <point key="canvasLocation" x="2039.2" y="-587.85607196401804"/>
         </scene>
-        <!--Item-->
+        <!--Explore-->
         <scene sceneID="H3V-rK-VdV">
             <objects>
                 <navigationController id="d3L-fG-yxG" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="7dz-bp-3Qz"/>
+                    <tabBarItem key="tabBarItem" title="Explore" id="7dz-bp-3Qz"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="nuf-7X-YE7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -247,14 +247,61 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Recommend" id="Sm4-38-7Gf"/>
+                    <navigationItem key="navigationItem" id="0P8-De-4mt"/>
                     <connections>
                         <outlet property="recommendNewsTableViews" destination="PXd-ih-6SM" id="sUa-hC-xPt"/>
-                        <segue destination="HTQ-1o-K2M" kind="show" identifier="recommendToNewsWeb" id="72c-4X-ccP"/>
+                        <segue destination="ne5-fB-qgG" kind="show" identifier="recommendToNewsWeb" id="nbb-i6-dNi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5CD-fH-64I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1220" y="176.76161919040482"/>
+        </scene>
+        <!--Recommend-->
+        <scene sceneID="VAU-hg-fC3">
+            <objects>
+                <navigationController id="zYg-yo-Lrf" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Recommend" id="Wcc-t3-wpO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9lS-Fb-xFw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="wZb-mf-zpB" kind="relationship" relationship="rootViewController" id="A1g-fD-8DI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iZc-XT-6Gv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-273" y="177"/>
+        </scene>
+        <!--Recommend Web View Controller-->
+        <scene sceneID="opk-sa-3Zl">
+            <objects>
+                <viewController id="ne5-fB-qgG" customClass="recommendWebViewController" customModule="news" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qxL-KI-DpN"/>
+                        <viewControllerLayoutGuide type="bottom" id="arN-iJ-wJP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0I5-YG-7fc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mUo-Pg-0EE">
+                                <rect key="frame" x="0.0" y="68" width="375" height="599"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="gl7-cT-gYJ"/>
+                    <connections>
+                        <outlet property="newWebView" destination="mUo-Pg-0EE" id="uSf-Kv-QnV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m5d-FY-Zde" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2766" y="177"/>
         </scene>
         <!--Personal-->
         <scene sceneID="09q-zh-1F6">
@@ -340,9 +387,9 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="GhT-BD-ru5" kind="relationship" relationship="viewControllers" id="8xE-Nn-Wga"/>
                         <segue destination="d3L-fG-yxG" kind="relationship" relationship="viewControllers" id="zFL-jy-Vc9"/>
-                        <segue destination="wZb-mf-zpB" kind="relationship" relationship="viewControllers" id="xdv-2h-zeu"/>
+                        <segue destination="zYg-yo-Lrf" kind="relationship" relationship="viewControllers" id="mQz-px-NO5"/>
+                        <segue destination="GhT-BD-ru5" kind="relationship" relationship="viewControllers" id="8xE-Nn-Wga"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hKQ-Kd-ZaD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -607,8 +654,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="TO9-ib-ciP"/>
         <segue reference="JYV-O6-qrf"/>
-        <segue reference="72c-4X-ccP"/>
+        <segue reference="TO9-ib-ciP"/>
     </inferredMetricsTieBreakers>
 </document>
