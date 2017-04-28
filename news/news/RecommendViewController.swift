@@ -31,15 +31,19 @@ class RecommendViewController: UIViewController, UITableViewDelegate, UITableVie
         NotificationCenter.default.addObserver(self, selector: #selector(RecommendViewController.reloadView), name: NSNotification.Name(rawValue: finishSortSignal), object: nil)
         // Do any additional setup after loading the view.
         
-//        recommendNewsTableViews.refreshControl = refreshControl
-//        refreshControl.addTarget(self, action: #selector(self.refreshData), for: .valueChanged)
+        recommendNewsTableViews.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(self.refreshData), for: .valueChanged)
         
     }
     
     func refreshData(){
-        recommendNewsTableViews.reloadData()
-        print("reloading")
         fetchNews()
+        var i = 0
+        while i < 5 {
+            sortedScore.remove(at: 0)
+            i += 1
+        }
+        self.recommendNewsTableViews.reloadData()
         refreshControl.endRefreshing()
     }
     
@@ -51,7 +55,7 @@ class RecommendViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sortedScore.count
+        return recommendNumber
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -82,6 +86,7 @@ class RecommendViewController: UIViewController, UITableViewDelegate, UITableVie
         }
     }
 
+    
     
     func reloadView() {
         self.recommendNewsTableViews.reloadData()
