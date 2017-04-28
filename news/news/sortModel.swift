@@ -36,7 +36,13 @@ class sortModel {
                 if userCategoryCount.keys.contains(type) {
                     categoryScore = userCategoryCount[type]!
                 }
-                var itsScore = categoryScore // Weighing.
+                let arr = eachNews.title?.characters.split{$0 == " "}.map(String.init)
+                for word in arr! {
+                    if userWordCount.keys.contains(word) {
+                        wordScore = userWordCount[word]! + wordScore
+                    }
+                }
+                var itsScore = 10 * categoryScore + wordScore // Weighing.
                 newsScore.append((eachNews, itsScore))
             }
         }
