@@ -9,12 +9,18 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import Alamofire
+
 class PersonalControllerViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
     @IBAction func logOut(_ sender: Any) {
         let firebaseAuth = FIRAuth.auth()
         do {
             try firebaseAuth?.signOut()
+            currentUserWordCount = [String: Int]()
+            currentUserCategoryCount = [String: Int]()
+            readNewses = [News]()
+            sortedScore = [(News,Int)]()
             self.performSegue(withIdentifier: "personalToLogin", sender: self)
             
         } catch let signOutError as NSError {
@@ -23,6 +29,9 @@ class PersonalControllerViewController: UIViewController, UICollectionViewDataSo
     }
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var topHitsCollectionView: UICollectionView!
+    
+    @IBOutlet weak var readNewsCollectionView: UICollectionView!
+    
     var topHits : [String] = []
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidLoad()
@@ -31,7 +40,12 @@ class PersonalControllerViewController: UIViewController, UICollectionViewDataSo
         if FIRAuth.auth()?.currentUser != nil {
             let email = FIRAuth.auth()?.currentUser?.email
             self.username.text = email
+            let id = FIRAuth.auth()?.currentUser?.uid
+
+            
         }
+        topHitsCollectionView.reloadData()
+        
 
         
 
@@ -46,17 +60,25 @@ class PersonalControllerViewController: UIViewController, UICollectionViewDataSo
         let notificationKey = "finishedDownloadWordCount"
         topHitsCollectionView.delegate = self
         topHitsCollectionView.dataSource = self
+        readNewsCollectionView.delegate = self
+        readNewsCollectionView.dataSource = self
+
 
         NotificationCenter.default.addObserver(self, selector: #selector(PersonalControllerViewController.reloadTopView), name: NSNotification.Name(rawValue: notificationKey), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(PersonalControllerViewController.reloadReadNews), name: NSNotification.Name(rawValue: "finishedDownloadReadNews"), object: nil)
     }
     
     func reloadTopView(){
 //        print(currentUserWordCount.flatMap({$0}).sorted { $0.0.1 > $0.1.1 })
         topHits = Array(currentUserWordCount.keys)
-        topHits = Array(topHits[0...10])
+        topHits = Array(topHits[0...min(10, topHits.count)])
         topHitsCollectionView.reloadData()
         
         
+    }
+    
+    func reloadReadNews(){
+        readNewsCollectionView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -65,14 +87,32 @@ class PersonalControllerViewController: UIViewController, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return topHits.count
+        if collectionView == topHitsCollectionView{
+            return topHits.count
+        }else{
+            return readNewses.count
+        }
         
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "topHitCell", for: indexPath) as! TopHitCell
-        cell.topWord.text = topHits[indexPath.row]
-        return cell
+        if collectionView == topHitsCollectionView{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "topHitCell", for: indexPath) as! TopHitCell
+            cell.topWord.text = topHits[indexPath.row]
+            return cell
+        }else{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "readNewsCell", for: indexPath) as! ReadNewsCell
+            let currentNews = readNewses[indexPath.row]
+            Alamofire.request(currentNews.urlToImage!).responseData(completionHandler: { response in
+                if let data = response.result.value {
+                    cell.newsImage.image = UIImage(data: data)
+                }
+            })
+
+
+            cell.newsTitle.text = currentNews.title
+            return cell
+        }
         
         
     }

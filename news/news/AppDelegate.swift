@@ -23,10 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             newsData[type] = [News]()
         }
         fetchNews()
-        if FIRAuth.auth()?.currentUser != nil {
-            let id = FIRAuth.auth()?.currentUser?.uid
-            downloadUserData(userId: id!)
-        }
+        
 
         sortModel()
         // Initializing a new sortModel class, download user data and news data, and sort.
