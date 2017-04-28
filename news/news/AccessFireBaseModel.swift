@@ -64,23 +64,20 @@ func uploadReadNews(news: News, userId: String){
 }
 
 func downloadReadNews(userId: String){
-    readNewses = [News]()
-
+    readNewses.removeAll()
     let dbRef = FIRDatabase.database().reference()
-    dbRef.child(userId).child("readNews").observe(.value, with: { (readNews) in
+    dbRef.child(userId).child("readNews").observeSingleEvent(of: .value, with: { (readNews) in
         if readNews.exists() {
+            print(readNewses.count)
             if let pair = readNews.value as? [String: AnyObject] {
                 for (title,values) in pair {
                     var news = News()
-                    print(values)
                     
                     if let values = values as? [String: AnyObject] {
                         for (attribute, value) in values {
                             switch attribute {
                                 case "author":
                                     news.author = value as! String
-                                    print(value)
-                                    print(news.author)
                                 case "title":
                                     news.title = value as! String
                                 case "description":
@@ -100,7 +97,7 @@ func downloadReadNews(userId: String){
                         }
                     }
                     readNewses.append(news)
-                    print(readNewses.count)
+                    
                     
                 }
                 let notificationKey = "finishedDownloadReadNews"
@@ -113,16 +110,6 @@ func downloadReadNews(userId: String){
 
 }
 
-func convertToDictionary(text: String) -> [String: Any]? {
-    if let data = text.data(using: .utf8) {
-        do {
-            return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
-        } catch {
-            print(error.localizedDescription)
-        }
-    }
-    return nil
-}
 
 
 

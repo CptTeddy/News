@@ -103,11 +103,13 @@ class PersonalControllerViewController: UIViewController, UICollectionViewDataSo
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "readNewsCell", for: indexPath) as! ReadNewsCell
             let currentNews = readNewses[indexPath.row]
-            Alamofire.request(currentNews.urlToImage!).responseData(completionHandler: { response in
-                if let data = response.result.value {
-                    cell.newsImage.image = UIImage(data: data)
-                }
-            })
+            if let imageURL = currentNews.urlToImage{
+                Alamofire.request(imageURL).responseData(completionHandler: { response in
+                    if let data = response.result.value {
+                        cell.newsImage.image = UIImage(data: data)
+                    }
+                })
+            }
 
 
             cell.newsTitle.text = currentNews.title

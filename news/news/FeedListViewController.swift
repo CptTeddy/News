@@ -39,8 +39,6 @@ class FeedListViewController: UIViewController, UICollectionViewDataSource, UICo
     */
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(feedCatalog.count)
-
         return feedCatalog.count
         
     }
