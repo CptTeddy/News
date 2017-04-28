@@ -1,3 +1,4 @@
+
 //
 //  AccessFireBaseModel.swift
 //  news
@@ -24,6 +25,7 @@ var currentUserWordCount = [String: Int]()
 var currentUserCategoryCount = [String: Int]()
 var newsData = [String:[News]]()
 var sortedScore = [(News,Int)]()
+var readNewses = [News]()
 
 
 func updateNewsLocal(newsTitle: String, category:String, upvote: Bool){
@@ -50,6 +52,79 @@ func updateNewsLocal(newsTitle: String, category:String, upvote: Bool){
         currentUserCategoryCount[category]! -= 1
     }
 }
+
+func uploadReadNews(news: News, userId: String){
+    let dbRef = FIRDatabase.database().reference()
+    dbRef.child(userId).child("readNews").child(news.title!).child("title").setValue(news.title)
+    dbRef.child(userId).child("readNews").child(news.title!).child("author").setValue(news.author)
+    dbRef.child(userId).child("readNews").child(news.title!).child("description").setValue(news.description)
+    dbRef.child(userId).child("readNews").child(news.title!).child("url").setValue(news.url)
+    dbRef.child(userId).child("readNews").child(news.title!).child("urlToImage").setValue(news.urlToImage)
+    dbRef.child(userId).child("readNews").child(news.title!).child("publishedAt").setValue(news.publishedAt)
+}
+
+func downloadReadNews(userId: String){
+    readNewses = [News]()
+
+    let dbRef = FIRDatabase.database().reference()
+    dbRef.child(userId).child("readNews").observe(.value, with: { (readNews) in
+        if readNews.exists() {
+            if let pair = readNews.value as? [String: AnyObject] {
+                for (title,values) in pair {
+                    var news = News()
+                    print(values)
+                    
+                    if let values = values as? [String: AnyObject] {
+                        for (attribute, value) in values {
+                            switch attribute {
+                                case "author":
+                                    news.author = value as! String
+                                    print(value)
+                                    print(news.author)
+                                case "title":
+                                    news.title = value as! String
+                                case "description":
+                                    news.description = value as! String
+                                case "url":
+                                    news.url = value as! String
+                                case "urlToImage":
+                                    news.urlToImage = value as! String
+                                case "publishedAt":
+                                    news.publishedAt = value as! String
+
+                                
+                                default:
+                                    print("")
+                                
+                            }
+                        }
+                    }
+                    readNewses.append(news)
+                    print(readNewses.count)
+                    
+                }
+                let notificationKey = "finishedDownloadReadNews"
+                
+                NotificationCenter.default.post(name: Notification.Name(rawValue: notificationKey), object: nil)
+            }
+        }
+        
+    })
+
+}
+
+func convertToDictionary(text: String) -> [String: Any]? {
+    if let data = text.data(using: .utf8) {
+        do {
+            return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    return nil
+}
+
+
 
 func downloadUserData(userId: String){
     let dbRef = FIRDatabase.database().reference()

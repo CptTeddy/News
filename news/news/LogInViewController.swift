@@ -26,6 +26,12 @@ class LogInViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         // Checks if user is already signed in and skips login
         if FIRAuth.auth()?.currentUser != nil {
+            let id = FIRAuth.auth()?.currentUser?.uid
+            downloadUserData(userId: id!)
+            downloadReadNews(userId: id!)
+            
+        }
+        if FIRAuth.auth()?.currentUser != nil {
             self.performSegue(withIdentifier: "loginToMain", sender: self)
         }
     }

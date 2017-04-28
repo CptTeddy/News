@@ -9,6 +9,8 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import FirebaseAuth
+
 
 class newsListUIViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -86,9 +88,19 @@ class newsListUIViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "newsListToNewsWeb", sender: self.feedArray[indexPath.row])
         let title = feedArray[indexPath.row].title
+        if FIRAuth.auth()?.currentUser != nil {
+            let id = FIRAuth.auth()?.currentUser?.uid
+            downloadUserData(userId: id!)
+            uploadReadNews(news: feedArray[indexPath.row], userId: id!)
+            downloadReadNews(userId: id!)
+            
+        }
+
+        performSegue(withIdentifier: "newsListToNewsWeb", sender: self.feedArray[indexPath.row])
+        
         updateNewsLocal(newsTitle: title!, category:self.catalogName!, upvote: true)
+        
     }
     
 

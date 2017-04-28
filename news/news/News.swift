@@ -24,4 +24,8 @@ class News{
         self.urlToImage = urlToImage
         self.publishedAt = publishedAt
     }
+    
+    init(){
+        
+    }
 }
