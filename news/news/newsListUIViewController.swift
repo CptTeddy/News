@@ -12,7 +12,7 @@ import SwiftyJSON
 import FirebaseAuth
 
 
-class newsListUIViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class newsListUIViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate {
     
     var catalogName:String?
     var feedArray:[News] = [News]()
@@ -26,9 +26,9 @@ class newsListUIViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var tapGesture = UITapGestureRecognizer(target: self, action: #selector(newsListUIViewController.tapEdit(_:)))
-        newsTableView.addGestureRecognizer(tapGesture!)
-        tapGesture!.delegate = self
+        let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(newsListUIViewController.swiped(swipeGesture:)))
+        newsTableView.addGestureRecognizer(swipeGesture)
+        swipeGesture.delegate = self as! UIGestureRecognizerDelegate
         
         newsTableView.delegate = self
         let notificationKey = "finishedSorting"
@@ -54,14 +54,20 @@ class newsListUIViewController: UIViewController, UITableViewDelegate, UITableVi
         refreshControl.endRefreshing()
     }
     
-    func tapEdit(recognizer: UITapGestureRecognizer)  {
-        if recognizer.state == UIGestureRecognizerState.ended {
-            let tapLocation = recognizer.location(in: self.newsTableView)
-            if let tapIndexPath = self.newsTableView.indexPathForRow(at: tapLocation) {
-                if let tappedCell = self.newsTableView.cellForRow(at: tapIndexPath) as? newsTableViewCell {
-                    //do what you want to cell here
-                    
-                }
+    func swiped(swipeGesture: UISwipeGestureRecognizer)  {
+        if let swipeGesture = swipeGesture as? UISwipeGestureRecognizer{
+            switch swipeGesture.direction {
+                case UISwipeGestureRecognizerDirection.right:
+                    print("right swipe")
+                    let swipeLocation = swipeGesture.location(in: self.newsTableView)
+                    if let swipeIndexPath = self.newsTableView.indexPathForRow(at: swipeLocation) {
+                        if let swipedCell = self.newsTableView.cellForRow(at: swipeIndexPath) as? newsTableViewCell {
+                            swipedCell.removeFromSuperview()
+                            print("correct swipe")
+                        }
+                    }
+                default:
+                    print("other swipes")
             }
         }
     }
