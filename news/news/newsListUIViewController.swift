@@ -25,6 +25,11 @@ class newsListUIViewController: UIViewController, UITableViewDelegate, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        var tapGesture = UITapGestureRecognizer(target: self, action: #selector(newsListUIViewController.tapEdit(_:)))
+        newsTableView.addGestureRecognizer(tapGesture!)
+        tapGesture!.delegate = self
+        
         newsTableView.delegate = self
         let notificationKey = "finishedSorting"
         newsTableView.dataSource = self
@@ -49,7 +54,17 @@ class newsListUIViewController: UIViewController, UITableViewDelegate, UITableVi
         refreshControl.endRefreshing()
     }
     
-    
+    func tapEdit(recognizer: UITapGestureRecognizer)  {
+        if recognizer.state == UIGestureRecognizerState.ended {
+            let tapLocation = recognizer.location(in: self.newsTableView)
+            if let tapIndexPath = self.newsTableView.indexPathForRow(at: tapLocation) {
+                if let tappedCell = self.newsTableView.cellForRow(at: tapIndexPath) as? newsTableViewCell {
+                    //do what you want to cell here
+                    
+                }
+            }
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
