@@ -304,7 +304,7 @@
 				TargetAttributes = {
 					BF205C431E95D65A00DB5C6B = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 8SNX443RCH;
+						DevelopmentTeam = 8QNJVXHBVB;
 						ProvisioningStyle = Automatic;
 					};
 					BF205C571E95D65B00DB5C6B = {
@@ -592,10 +592,10 @@
 			baseConfigurationReference = 69984CD868FFE14FFF6BE471 /* Pods-news.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 8SNX443RCH;
+				DEVELOPMENT_TEAM = 8QNJVXHBVB;
 				INFOPLIST_FILE = news/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "teddy-jimmy.news";
+				PRODUCT_BUNDLE_IDENTIFIER = "teddy-jimmy12345";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -606,10 +606,10 @@
 			baseConfigurationReference = 606DFC32521F283BE03DFE86 /* Pods-news.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 8SNX443RCH;
+				DEVELOPMENT_TEAM = 8QNJVXHBVB;
 				INFOPLIST_FILE = news/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "teddy-jimmy.news";
+				PRODUCT_BUNDLE_IDENTIFIER = "teddy-jimmy12345";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

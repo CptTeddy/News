@@ -12,7 +12,7 @@ import SwiftyJSON
 import FirebaseAuth
 
 
-class newsListUIViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class newsListUIViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate {
     
     var catalogName:String?
     var feedArray:[News] = [News]()
@@ -25,10 +25,6 @@ class newsListUIViewController: UIViewController, UITableViewDelegate, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        var tapGesture = UITapGestureRecognizer(target: self, action: #selector(newsListUIViewController.tapEdit(_:)))
-//        newsTableView.addGestureRecognizer(tapGesture!)
-//        tapGesture!.delegate = self
         
         newsTableView.delegate = self
         let notificationKey = "finishedSorting"
@@ -53,8 +49,6 @@ class newsListUIViewController: UIViewController, UITableViewDelegate, UITableVi
         fetchNews()
         refreshControl.endRefreshing()
     }
-    
-
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
