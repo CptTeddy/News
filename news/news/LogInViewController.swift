@@ -57,6 +57,7 @@ class LogInViewController: UIViewController {
                 let currentUser = FIRAuth.auth()?.currentUser
                 let id = currentUser?.uid
                 downloadUserData(userId: id!)
+                downloadReadNews(userId: id!)
             }
             let downloadNotificationKey = "finishedDownload"
             NotificationCenter.default.post(name: Notification.Name(rawValue: downloadNotificationKey), object: self)
