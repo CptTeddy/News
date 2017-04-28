@@ -17,6 +17,8 @@ class RecommendViewController: UIViewController, UITableViewDelegate, UITableVie
     var catalogName:String?
     var feedArray:[News] = [News]()
     
+    var refreshControl = UIRefreshControl()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let currentUser = FIRAuth.auth()?.currentUser
@@ -28,6 +30,17 @@ class RecommendViewController: UIViewController, UITableViewDelegate, UITableVie
         let finishSortSignal = "finished sorting"
         NotificationCenter.default.addObserver(self, selector: #selector(RecommendViewController.reloadView), name: NSNotification.Name(rawValue: finishSortSignal), object: nil)
         // Do any additional setup after loading the view.
+        
+//        recommendNewsTableViews.refreshControl = refreshControl
+//        refreshControl.addTarget(self, action: #selector(self.refreshData), for: .valueChanged)
+        
+    }
+    
+    func refreshData(){
+        recommendNewsTableViews.reloadData()
+        print("reloading")
+        fetchNews()
+        refreshControl.endRefreshing()
     }
     
     @IBOutlet weak var recommendNewsTableViews: UITableView!
@@ -54,9 +67,9 @@ class RecommendViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "newsListToNewsWeb", sender: sortedScore[indexPath.row].0)
+        performSegue(withIdentifier: "recommendToNewsWeb", sender: sortedScore[indexPath.row].0)
         let title = sortedScore[indexPath.row].0.title
-        updateNewsLocal(newsTitle: title!, category:self.catalogName!, upvote: true)
+//        updateNewsLocal(newsTitle: title!, category:self.catalogName!, upvote: true)
     }
     
     
