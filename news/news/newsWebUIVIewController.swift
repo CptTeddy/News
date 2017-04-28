@@ -19,6 +19,7 @@ class newsWebUIVIewController: UIViewController {
         newsWebView.loadRequest(request)
         
         
+        
 
         // Do any additional setup after loading the view.
     }

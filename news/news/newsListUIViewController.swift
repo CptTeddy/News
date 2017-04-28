@@ -99,6 +99,7 @@ class newsListUIViewController: UIViewController, UITableViewDelegate, UITableVi
             let id = FIRAuth.auth()?.currentUser?.uid
             downloadUserData(userId: id!)
             uploadReadNews(news: feedArray[indexPath.row], userId: id!)
+            print("download")
             downloadReadNews(userId: id!)
             
         }
