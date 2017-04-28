@@ -26,9 +26,9 @@ class newsListUIViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var tapGesture = UITapGestureRecognizer(target: self, action: #selector(newsListUIViewController.tapEdit(_:)))
-        newsTableView.addGestureRecognizer(tapGesture!)
-        tapGesture!.delegate = self
+//        var tapGesture = UITapGestureRecognizer(target: self, action: #selector(newsListUIViewController.tapEdit(_:)))
+//        newsTableView.addGestureRecognizer(tapGesture!)
+//        tapGesture!.delegate = self
         
         newsTableView.delegate = self
         let notificationKey = "finishedSorting"
@@ -54,17 +54,7 @@ class newsListUIViewController: UIViewController, UITableViewDelegate, UITableVi
         refreshControl.endRefreshing()
     }
     
-    func tapEdit(recognizer: UITapGestureRecognizer)  {
-        if recognizer.state == UIGestureRecognizerState.ended {
-            let tapLocation = recognizer.location(in: self.newsTableView)
-            if let tapIndexPath = self.newsTableView.indexPathForRow(at: tapLocation) {
-                if let tappedCell = self.newsTableView.cellForRow(at: tapIndexPath) as? newsTableViewCell {
-                    //do what you want to cell here
-                    
-                }
-            }
-        }
-    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -87,6 +77,19 @@ class newsListUIViewController: UIViewController, UITableViewDelegate, UITableVi
 
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            updateNewsLocal(newsTitle: feedArray[indexPath.row].title!, category:catalogName!, upvote: false)
+
+            feedArray.remove(at: 2)
+            newsTableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
+    @objc func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return "Dislike" //or customize for each indexPath
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let title = feedArray[indexPath.row].title
         if FIRAuth.auth()?.currentUser != nil {
@@ -102,6 +105,10 @@ class newsListUIViewController: UIViewController, UITableViewDelegate, UITableVi
         
         updateNewsLocal(newsTitle: title!, category:self.catalogName!, upvote: true)
         
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
     }
     
 
