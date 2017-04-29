@@ -14,6 +14,7 @@ import SwiftyJSON
 
 class RecommendViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    var deletedRowsNumber = 0
     var catalogName:String?
     var feedArray:[News] = [News]()
     
@@ -55,7 +56,25 @@ class RecommendViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return recommendNumber
+        return recommendNumber - deletedRowsNumber
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    @objc func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return "Dislike" //or customize for each indexPath
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            
+            sortedScore.remove(at: 2)
+            deletedRowsNumber += 1
+            recommendNewsTableViews.deleteRows(at: [indexPath], with: .fade)
+            
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
