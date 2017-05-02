@@ -80,10 +80,12 @@ class RecommendViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "newsCell") as! recommendNewsTableViewCell
         cell.newsTitle.text = sortedScore[indexPath.row].0.title
+        cell.newsImage.image = nil
         Alamofire.request(sortedScore[indexPath.row].0.urlToImage!).responseData(completionHandler: { response in
             if let data = response.result.value {
                 cell.newsImage.image = UIImage(data: data)
-            }
+            }else{
+                cell.newsImage.image = nil            }
         })
         return cell
         

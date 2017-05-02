@@ -60,12 +60,15 @@ class newsListUIViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "newsCell") as! newsTableViewCell
+        cell.newsImage.image = nil
         cell.newsTitle.text = feedArray[indexPath.row].title
         Alamofire.request(feedArray[indexPath.row].urlToImage!).responseData(completionHandler: { response in
             if let data = response.result.value {
                 cell.newsImage.image = UIImage(data: data)
-            }
+            }else{
+                cell.newsImage.image = nil            }
         })
         return cell
 
