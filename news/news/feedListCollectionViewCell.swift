@@ -10,7 +10,7 @@ import UIKit
 
 class feedListCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var catalogPicture: UIImageView!
+    @IBOutlet weak var catalogImageView: UIImageView!
     
     @IBOutlet weak var catalogName: UILabel!
 }

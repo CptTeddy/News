@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,34 +27,63 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tXc-KP-AHr">
-                                    <size key="itemSize" width="170" height="161"/>
+                                    <size key="itemSize" width="173" height="223"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="catalogCell" id="J77-b1-cmN" customClass="feedListCollectionViewCell" customModule="news" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="170" height="161"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="173" height="223"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="170" height="161"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="173" height="223"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cj9-Ef-QNX">
-                                                    <rect key="frame" x="0.0" y="0.0" width="170" height="153"/>
+                                                    <rect key="frame" x="0.0" y="188.5" width="173" height="26.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                     <color key="textColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="uju-oU-ct9">
+                                                    <rect key="frame" x="9" y="13" width="152" height="152"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="qiC-c5-Xcg">
+                                                            <rect key="frame" x="0.0" y="0.0" width="152" height="152"/>
+                                                            <subviews>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bhX-OJ-bR4">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="152" height="152"/>
+                                                                    <subviews>
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4sD-BQ-jxY">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="152" height="152"/>
+                                                                            <subviews>
+                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nFN-tO-4ZA">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="152" height="152"/>
+                                                                                </imageView>
+                                                                            </subviews>
+                                                                        </stackView>
+                                                                    </subviews>
+                                                                </stackView>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="uju-oU-ct9" secondAttribute="height" multiplier="1:1" id="0zD-F3-umN"/>
+                                                    </constraints>
+                                                </stackView>
                                             </subviews>
                                         </view>
                                         <constraints>
                                             <constraint firstItem="cj9-Ef-QNX" firstAttribute="leading" secondItem="J77-b1-cmN" secondAttribute="leading" id="FxI-dR-RVK"/>
-                                            <constraint firstItem="cj9-Ef-QNX" firstAttribute="top" secondItem="J77-b1-cmN" secondAttribute="top" id="hwe-30-kpU"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="uju-oU-ct9" secondAttribute="trailing" constant="4" id="IND-Lh-Ka5"/>
+                                            <constraint firstItem="uju-oU-ct9" firstAttribute="leading" secondItem="J77-b1-cmN" secondAttribute="leadingMargin" constant="1" id="N8g-60-pBs"/>
+                                            <constraint firstItem="uju-oU-ct9" firstAttribute="top" secondItem="J77-b1-cmN" secondAttribute="topMargin" constant="5" id="dIH-BD-sBg"/>
                                             <constraint firstAttribute="trailing" secondItem="cj9-Ef-QNX" secondAttribute="trailing" id="wFj-pR-JMo"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="cj9-Ef-QNX" secondAttribute="bottom" id="yCK-Xe-SA6"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="catalogImageView" destination="nFN-tO-4ZA" id="sYe-FR-xSk"/>
                                             <outlet property="catalogName" destination="cj9-Ef-QNX" id="QRd-V6-wBb"/>
                                         </connections>
                                     </collectionViewCell>
@@ -179,7 +209,16 @@
         <scene sceneID="H3V-rK-VdV">
             <objects>
                 <navigationController id="d3L-fG-yxG" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Explore" id="7dz-bp-3Qz"/>
+                    <tabBarItem key="tabBarItem" title="Explore" image="house-7" selectedImage="house-7" id="7dz-bp-3Qz">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="navigationBar.tintColor">
+                                <color key="value" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="navigationBar.barStyle">
+                                <color key="value" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="nuf-7X-YE7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -261,7 +300,13 @@
         <scene sceneID="VAU-hg-fC3">
             <objects>
                 <navigationController id="zYg-yo-Lrf" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Recommend" id="Wcc-t3-wpO"/>
+                    <tabBarItem key="tabBarItem" title="Recommend" image="new-sign-badge-7" selectedImage="new-sign-badge-7" id="Wcc-t3-wpO">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="navigationItem.backBarButtonItem.tintColor">
+                                <color key="value" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="9lS-Fb-xFw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -404,7 +449,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Personal" id="DaZ-JG-LDV"/>
+                    <tabBarItem key="tabBarItem" title="Personal" image="brain" selectedImage="brain" id="DaZ-JG-LDV"/>
                     <connections>
                         <outlet property="readNewsCollectionView" destination="cZJ-cN-bwC" id="bjP-aO-ZMa"/>
                         <outlet property="topHitsCollectionView" destination="D3m-Um-Zi7" id="y10-Mj-8zv"/>
@@ -425,6 +470,11 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="tabBar.tintColor">
+                            <color key="value" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="d3L-fG-yxG" kind="relationship" relationship="viewControllers" id="zFL-jy-Vc9"/>
                         <segue destination="zYg-yo-Lrf" kind="relationship" relationship="viewControllers" id="mQz-px-NO5"/>
@@ -692,8 +742,14 @@
             <point key="canvasLocation" x="-3414" y="224"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="brain" width="30" height="30"/>
+        <image name="house-7" width="30" height="30"/>
+        <image name="new-sign-badge-7" width="29" height="30"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="JYV-O6-qrf"/>
         <segue reference="TO9-ib-ciP"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>

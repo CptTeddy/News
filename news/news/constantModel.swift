@@ -15,7 +15,7 @@ import FirebaseAuth
 
 let KEY = "09198f4fbe3e46b6b4585afce93a0542"
 
-let feedCatalog = ["General", "Technology", "Business", "Sport", "Politics", "Entertainment", "Music", "Science", "gaming"]
+let feedCatalog = ["General", "Technology", "Business", "Sport", "Politics", "Entertainment", "Science", "gaming"]
 
 let recommendNumber = 25
 
@@ -27,8 +27,7 @@ let catalogSource:[String:[String]] = ["General": ["abc-news-au","associated-pre
                                                         "talksport", "techcrunch", "techradar", "the-next-web", "the-verge"],
                                        "Business":["bloomberg", "business-insider", "business-insider-uk", "cnbc", "die-zeit", "financial-times", "fortune","handelsblatt", "the-economist", "wirtschafts-woche"],
                                        "Politics":["breitbart-news"],
-                                       "Entertainment":["buzzfeed", "daily-mail","entertainment-weekly", "mashable", "the-lad-bible", ],
-                                       "Music":["mtv-news", "mtv-news-uk"],
+                                       "Entertainment":["buzzfeed", "daily-mail","entertainment-weekly", "mashable", "the-lad-bible", "mtv-news", "mtv-news-uk"],
                                        "Science":["new-scientist", "national-geographic"],
                                        "gaming":["polygon","ign"],
                                        "Sport":["espn", "bbc-sport","espn-cric-info", "four-four-two","fox-sports", "nfl-news", "the-sport-bible"]]
