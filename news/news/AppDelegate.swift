@@ -25,8 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         fetchNews()
         let currentUser = FIRAuth.auth()?.currentUser
         let id = currentUser?.uid
-        downloadUserData(userId: id!)
-        sortModel().startSortNews()
+//        downloadUserData(userId: id!)
+//        sortModel().startSortNews()
 
         
         // Initializing a new sortModel class, download user data and news data, and sort.

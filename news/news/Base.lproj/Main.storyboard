@@ -392,21 +392,12 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wXO-AM-E4W">
-                                <rect key="frame" x="25" y="87" width="211" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wXO-AM-E4W">
+                                <rect key="frame" x="16" y="62" width="144" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qEu-7M-6X5">
-                                <rect key="frame" x="244" y="82" width="56" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Log Out"/>
-                                <connections>
-                                    <action selector="logOut:" destination="GhT-BD-ru5" eventType="touchUpInside" id="w40-ve-Swd"/>
-                                </connections>
-                            </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cZJ-cN-bwC">
                                 <rect key="frame" x="0.0" y="156" width="375" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -444,17 +435,52 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Most Hit Words" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qdU-JO-dUs">
+                                <rect key="frame" x="25" y="292" width="138" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="History" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XeZ-EX-8sc">
+                                <rect key="frame" x="25" y="107" width="64" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qEu-7M-6X5">
+                                <rect key="frame" x="235" y="57" width="56" height="30"/>
+                                <state key="normal" title="Log Out"/>
+                                <connections>
+                                    <action selector="logOut:" destination="GhT-BD-ru5" eventType="touchUpInside" id="w40-ve-Swd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="XeZ-EX-8sc" secondAttribute="trailing" constant="286" id="0QT-6W-b9n"/>
+                            <constraint firstItem="qdU-JO-dUs" firstAttribute="top" secondItem="cZJ-cN-bwC" secondAttribute="bottom" constant="8" id="0qU-6c-e9k"/>
+                            <constraint firstItem="qEu-7M-6X5" firstAttribute="leading" secondItem="Ac1-h6-uAA" secondAttribute="leading" constant="235" id="4yf-WZ-1JC"/>
                             <constraint firstItem="D3m-Um-Zi7" firstAttribute="leading" secondItem="Ac1-h6-uAA" secondAttribute="leading" constant="16" id="AFM-6b-6am"/>
+                            <constraint firstAttribute="trailing" secondItem="qEu-7M-6X5" secondAttribute="trailing" constant="84" id="AGj-MW-3kP"/>
                             <constraint firstItem="cZJ-cN-bwC" firstAttribute="top" secondItem="Ac1-h6-uAA" secondAttribute="topMargin" constant="156" id="EA0-lO-Xgg"/>
                             <constraint firstAttribute="trailing" secondItem="cZJ-cN-bwC" secondAttribute="trailing" id="EvC-eO-sX1"/>
+                            <constraint firstItem="wXO-AM-E4W" firstAttribute="leading" secondItem="Ac1-h6-uAA" secondAttribute="leading" constant="16" id="HNm-fU-aUq"/>
+                            <constraint firstItem="XeZ-EX-8sc" firstAttribute="leading" secondItem="Ac1-h6-uAA" secondAttribute="leading" constant="25" id="Kz3-vl-qye"/>
                             <constraint firstItem="D3m-Um-Zi7" firstAttribute="top" secondItem="Ac1-h6-uAA" secondAttribute="topMargin" constant="341" id="P3l-8T-e0H"/>
+                            <constraint firstItem="D3m-Um-Zi7" firstAttribute="top" secondItem="qdU-JO-dUs" secondAttribute="bottom" constant="8" id="QJv-a0-XD3"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="qEu-7M-6X5" secondAttribute="bottom" constant="580" id="Qko-YV-qVq"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="wXO-AM-E4W" secondAttribute="bottom" constant="584" id="Qpv-EY-qKD"/>
+                            <constraint firstItem="wXO-AM-E4W" firstAttribute="top" secondItem="Ac1-h6-uAA" secondAttribute="topMargin" constant="62" id="Rvu-ac-6p6"/>
                             <constraint firstAttribute="trailing" secondItem="D3m-Um-Zi7" secondAttribute="trailing" constant="16" id="TxM-43-EAr"/>
+                            <constraint firstItem="qEu-7M-6X5" firstAttribute="top" secondItem="Ac1-h6-uAA" secondAttribute="topMargin" constant="57" id="VS2-C6-Fxf"/>
+                            <constraint firstItem="cZJ-cN-bwC" firstAttribute="top" secondItem="XeZ-EX-8sc" secondAttribute="bottom" constant="8" id="W6h-rc-WmP"/>
+                            <constraint firstItem="qdU-JO-dUs" firstAttribute="leading" secondItem="Ac1-h6-uAA" secondAttribute="leading" constant="25" id="Ybe-qR-Lkz"/>
+                            <constraint firstAttribute="trailing" secondItem="qdU-JO-dUs" secondAttribute="trailing" constant="212" id="aWy-Qj-QIa"/>
+                            <constraint firstAttribute="trailing" secondItem="wXO-AM-E4W" secondAttribute="trailing" constant="215" id="fPk-sn-4ch"/>
                             <constraint firstItem="cZJ-cN-bwC" firstAttribute="leading" secondItem="Ac1-h6-uAA" secondAttribute="leading" id="iSt-qi-ssx"/>
                             <constraint firstAttribute="bottomMargin" secondItem="D3m-Um-Zi7" secondAttribute="bottom" constant="144" id="pXM-IY-djE"/>
                             <constraint firstAttribute="bottomMargin" secondItem="cZJ-cN-bwC" secondAttribute="bottom" constant="383" id="pjI-g8-xDX"/>
+                            <constraint firstItem="XeZ-EX-8sc" firstAttribute="top" secondItem="wXO-AM-E4W" secondAttribute="bottom" constant="24" id="ypU-jd-r83"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Personal" image="brain" selectedImage="brain" id="DaZ-JG-LDV"/>
