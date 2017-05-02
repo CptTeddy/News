@@ -15,7 +15,7 @@ import FirebaseAuth
 
 let KEY = "09198f4fbe3e46b6b4585afce93a0542"
 
-let feedCatalog = ["General", "Technology", "Business", "Sport", "Politics", "Entertainment", "Science", "gaming"]
+let feedCatalog = ["General", "Technology", "Business", "Sports", "Politics", "Entertainment", "Science", "Gaming"]
 
 let recommendNumber = 25
 
@@ -29,8 +29,8 @@ let catalogSource:[String:[String]] = ["General": ["abc-news-au","associated-pre
                                        "Politics":["breitbart-news"],
                                        "Entertainment":["buzzfeed", "daily-mail","entertainment-weekly", "mashable", "the-lad-bible", "mtv-news", "mtv-news-uk"],
                                        "Science":["new-scientist", "national-geographic"],
-                                       "gaming":["polygon","ign"],
-                                       "Sport":["espn", "bbc-sport","espn-cric-info", "four-four-two","fox-sports", "nfl-news", "the-sport-bible"]]
+                                       "Gaming":["polygon","ign"],
+                                       "Sports":["espn", "bbc-sport","espn-cric-info", "four-four-two","fox-sports", "nfl-news", "the-sport-bible"]]
 
 let neturalWords =  [
 "a",
