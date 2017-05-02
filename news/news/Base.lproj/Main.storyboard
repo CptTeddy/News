@@ -209,7 +209,7 @@
         <scene sceneID="H3V-rK-VdV">
             <objects>
                 <navigationController id="d3L-fG-yxG" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Explore" image="house-7" selectedImage="house-7" id="7dz-bp-3Qz">
+                    <tabBarItem key="tabBarItem" title="Explore" image="explore_icon" selectedImage="explore_icon" id="7dz-bp-3Qz">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="navigationBar.tintColor">
                                 <color key="value" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -300,7 +300,7 @@
         <scene sceneID="VAU-hg-fC3">
             <objects>
                 <navigationController id="zYg-yo-Lrf" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Recommend" image="new-sign-badge-7" selectedImage="new-sign-badge-7" id="Wcc-t3-wpO">
+                    <tabBarItem key="tabBarItem" tag="1" title="Recommend" image="recommend_icon" selectedImage="recommend_icon" id="Wcc-t3-wpO">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="navigationItem.backBarButtonItem.tintColor">
                                 <color key="value" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -457,7 +457,7 @@
                             <constraint firstAttribute="bottomMargin" secondItem="cZJ-cN-bwC" secondAttribute="bottom" constant="383" id="pjI-g8-xDX"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Personal" image="brain" selectedImage="brain" id="DaZ-JG-LDV"/>
+                    <tabBarItem key="tabBarItem" tag="2" title="Personal" image="personal_icon" selectedImage="personal_icon" id="DaZ-JG-LDV"/>
                     <connections>
                         <outlet property="readNewsCollectionView" destination="cZJ-cN-bwC" id="bjP-aO-ZMa"/>
                         <outlet property="topHitsCollectionView" destination="D3m-Um-Zi7" id="y10-Mj-8zv"/>
@@ -752,9 +752,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="brain" width="30" height="30"/>
-        <image name="house-7" width="30" height="30"/>
-        <image name="new-sign-badge-7" width="29" height="30"/>
+        <image name="explore_icon" width="16" height="16"/>
+        <image name="personal_icon" width="16" height="16"/>
+        <image name="recommend_icon" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="TO9-ib-ciP"/>
