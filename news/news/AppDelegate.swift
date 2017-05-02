@@ -23,9 +23,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             newsData[type] = [News]()
         }
         fetchNews()
-        
+        let currentUser = FIRAuth.auth()?.currentUser
+        let id = currentUser?.uid
+        downloadUserData(userId: id!)
+        sortModel().startSortNews()
 
-        sortModel()
+        
         // Initializing a new sortModel class, download user data and news data, and sort.
         let finishSortSignal = "finished sorting"
         NotificationCenter.default.post(name: Notification.Name(rawValue: finishSortSignal), object: self)
