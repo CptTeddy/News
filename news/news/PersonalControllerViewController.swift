@@ -99,6 +99,7 @@ class PersonalControllerViewController: UIViewController, UICollectionViewDataSo
         if collectionView == topHitsCollectionView{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "topHitCell", for: indexPath) as! TopHitCell
             cell.topWord.text = topHits[indexPath.row]
+            cell.topWord.sizeToFit()
             return cell
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "readNewsCell", for: indexPath) as! ReadNewsCell

@@ -31,7 +31,14 @@ var readNewses = [News]()
 func updateNewsLocal(newsTitle: String, category:String, upvote: Bool){
     
     let wordList = newsTitle.components(separatedBy: " ")
-    for word in wordList{
+    for var word in wordList{
+        word = word.lowercased()
+        word = String(word.characters.filter { String($0).rangeOfCharacter(from: CharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyz")) != nil })
+        if(word.characters.count <= 2){
+            continue
+        }
+        print("go through")
+        
         if !neturalWords.contains(word){
             if currentUserWordCount[word] == nil{
                 currentUserWordCount[word] = 0

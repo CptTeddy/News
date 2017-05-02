@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FeedListViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class FeedListViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var catalogCollectionView: UICollectionView!
     override func viewDidLoad() {
@@ -43,10 +43,24 @@ class FeedListViewController: UIViewController, UICollectionViewDataSource, UICo
         
     }
     
+
+    //MARK: - UICollectionViewDelegateFlowLayout
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let screenSize: CGRect = UIScreen.main.bounds
+        let screenWidth = screenSize.width
+        let screenHeight = screenSize.height
+        return CGSize(width: screenWidth/2.1, height: 1.1 * screenWidth/2.1)
+    }
+    
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "catalogCell", for: indexPath) as! feedListCollectionViewCell
         cell.catalogName.text = feedCatalog[indexPath.row]
         cell.catalogImageView.image = UIImage(named: feedCatalog[indexPath.row])
+        
         cell.catalogImageView.layer.cornerRadius =  cell.catalogImageView.frame.size.width/2
         cell.catalogImageView.clipsToBounds = true
         //  cell.catalogName.backgroundColor = UIColor.init(colorLiteralRed: (catalogColor[indexPath.item]?[0])!, green: (catalogColor[indexPath.item]?[1])!, blue: (catalogColor[indexPath.item]?[2])!, alpha: 50)
