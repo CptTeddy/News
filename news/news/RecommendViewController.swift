@@ -22,6 +22,12 @@ class RecommendViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+
+
         let currentUser = FIRAuth.auth()?.currentUser
         let id = currentUser?.uid
         downloadUserData(userId: id!)
@@ -34,7 +40,7 @@ class RecommendViewController: UIViewController, UITableViewDelegate, UITableVie
         
         recommendNewsTableViews.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(self.refreshData), for: .valueChanged)
-        
+
     }
     
     func refreshData(){
