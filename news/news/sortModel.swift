@@ -46,6 +46,7 @@ class sortModel {
         }
         newsScore.sort(by: {$0.1>$1.1})
         sortedScore = newsScore
+        
         print("finish sorting")
     }
 }

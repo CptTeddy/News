@@ -44,11 +44,16 @@ class newsListUIViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func refreshData(){
-        newsTableView.reloadData()
-        print("reloading")
-        fetchNews()
-        refreshControl.endRefreshing()
-    }
+        
+        
+        fetchNews(completion:{_ in
+            print("reloading")
+            self.newsTableView.reloadData()
+            self.refreshControl.endRefreshing()
+
+        }, callback: true)
+        
+        }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -93,11 +98,10 @@ class newsListUIViewController: UIViewController, UITableViewDelegate, UITableVi
             let id = FIRAuth.auth()?.currentUser?.uid
             downloadUserData(userId: id!)
             uploadReadNews(news: feedArray[indexPath.row], userId: id!)
-            print("download")
             downloadReadNews(userId: id!)
             
         }
-
+        sortModel().startSortNews()
         performSegue(withIdentifier: "newsListToNewsWeb", sender: self.feedArray[indexPath.row])
         
         updateNewsLocal(newsTitle: title!, category:self.catalogName!, upvote: true)

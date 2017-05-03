@@ -122,6 +122,8 @@ func downloadReadNews(userId: String){
 
 func downloadUserData(userId: String){
     let dbRef = FIRDatabase.database().reference()
+    var firstFinish = false
+    var secondFinish = false
     dbRef.child(userId).child("wordCount").observe(.value, with: { (wordData) in
         if wordData.exists() {
             if let wordDict = wordData.value as? [String: AnyObject] {
@@ -130,6 +132,13 @@ func downloadUserData(userId: String){
                     currentUserWordCount[key] = count
                 }
                 let notificationKey = "finishedDownloadWordCount"
+                firstFinish = true
+                if (firstFinish && secondFinish){
+                    sortModel().startSortNews()
+                    let finishSortSignal = "finished sorting"
+                    NotificationCenter.default.post(name: Notification.Name(rawValue: finishSortSignal), object: nil)
+                }
+                
                 
                 NotificationCenter.default.post(name: Notification.Name(rawValue: notificationKey), object: nil)
             }
@@ -142,6 +151,13 @@ func downloadUserData(userId: String){
                 for (key,value) in catDict {
                     let count = Int(value as! NSNumber)
                     currentUserCategoryCount[key] = count
+                    
+                }
+                secondFinish = true
+                if (firstFinish && secondFinish){
+                    sortModel().startSortNews()
+                    let finishSortSignal = "finished sorting"
+                    NotificationCenter.default.post(name: Notification.Name(rawValue: finishSortSignal), object: nil)
                 }
             }
         }
@@ -166,8 +182,11 @@ func uploadUserData(userId: String){
 
 
 
-func fetchNews(){
+func fetchNews(completion: @escaping () -> Void, callback: Bool){
+    newsData = [String:[News]]()
+
     for (cat,resources) in catalogSource{
+        var count = 0
         for resource in resources as [String]{
             let url = "https://newsapi.org/v1/articles?source="+resource+"&sortBy=top&apiKey="+KEY;
             Alamofire.request(url).responseJSON(completionHandler: { response in
@@ -193,9 +212,17 @@ func fetchNews(){
                     newsData[cat]! += [news]
                     
                 }
-                let notificationKey = "finishedSorting"
+                count += 1
+                if(count==8){
+                    let notificationKey = "finishedSorting"
+                    
+                    completion()
+                    if !callback{
+                        NotificationCenter.default.post(name: Notification.Name(rawValue: notificationKey), object: nil)
 
-                NotificationCenter.default.post(name: Notification.Name(rawValue: notificationKey), object: nil)
+                    }
+                }
+                
             })
         }
     }

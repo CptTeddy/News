@@ -22,16 +22,10 @@ class RecommendViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-
-
         let currentUser = FIRAuth.auth()?.currentUser
         let id = currentUser?.uid
-        downloadUserData(userId: id!)
-        sortModel().startSortNews()
+//        downloadUserData(userId: id!)
+//        sortModel().startSortNews()
         recommendNewsTableViews.delegate = self
         recommendNewsTableViews.dataSource = self
         let finishSortSignal = "finished sorting"
@@ -41,10 +35,21 @@ class RecommendViewController: UIViewController, UITableViewDelegate, UITableVie
         recommendNewsTableViews.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(self.refreshData), for: .valueChanged)
 
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+
+        
     }
     
     func refreshData(){
-        fetchNews()
+        fetchNews(completion:{_ in
+            sortModel().startSortNews()
+
+            
+        }, callback: false)
+
         var i = 0
         while i < 5 {
             sortedScore.remove(at: 0)

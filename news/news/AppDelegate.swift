@@ -22,9 +22,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         for var type in feedCatalog{
             newsData[type] = [News]()
         }
-        fetchNews()
-        let currentUser = FIRAuth.auth()?.currentUser
-        let id = currentUser?.uid
+        fetchNews(completion:{_ in
+            if let currentUser = FIRAuth.auth()?.currentUser{
+                let id = currentUser.uid
+                downloadUserData(userId: id)
+                let downloadNotificationKey = "finishedDownload"
+            }
+            
+        }, callback: true)
+        
 //        downloadUserData(userId: id!)
 //        sortModel().startSortNews()
 
